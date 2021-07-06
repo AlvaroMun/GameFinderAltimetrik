@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap');
 
-body, html{
+body{
     font-family: 'Nunito', sans-serif;
     color: #FFFFFF;
     background: #141414;
@@ -16,6 +16,7 @@ span{
 a{
     color: #FFFFFF;
     font-size: small;
+    text-decoration: none;
 }
 
 
@@ -25,10 +26,10 @@ h4 {
 }
 
 h4:before,h4:after {
-            content: "";
-            flex: 1 1;
-            border-bottom: 2px solid #FFFFFF;
-            margin: auto 5px;
+    content: "";
+    flex: 1 1;
+    border-bottom: 2px solid #FFFFFF;
+    margin: auto 5px;
 }
 
 
@@ -50,35 +51,41 @@ h4:before,h4:after {
     float: left;
     width: 100%;
     /*height: 100%;*/
-    /*padding: 0 20px;*/
+    padding: 0 100px;
     display: inline-flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
     text-align: center;
-    margin:0 10vw;
+    /*margin:0 10vw;*/
 }
 
-.loginForm input{
+.loginForm input, button{
+    border-radius: 5px;
     height: 2rem;
-    margin: 6% 0;
+    margin: 1vh 0;
 }
 
 .loginForm div{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .loginForm input[type=checkbox]{
     margin-right: .5rem;
+    color: #929699;
 }
+
+
+
+
 
 
 .loginBox{
     border-radius: 10px;
-    width: 65%;
+    width: 1083px;
     height: 660px;
     margin:auto;
     display: flex;
@@ -89,28 +96,147 @@ h4:before,h4:after {
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
 }
 
+#userFieldContainer{
+    display: block;
+}
+
+
+
+#userFieldContainer input{
+    border-style: double;
+    background: #303030;
+    max-width: 300px;
+}
+
+#passFieldContainer{
+    display: block;
+}
+
+#passFieldContainer input{
+    border-style: double;
+    background: #303030;
+    max-width: 300px;
+}
+
+#showPassword{
+    cursor: pointer;
+    margin-left: -30px;
+    margin-right: 9px;
+}
+
 .verticalAlign{
     display: table-cell;
     vertical-align: middle;
 }
 
+#loginBtn{
+    background: linear-gradient(180deg, #7CD235 0%, #2BB34F 100%);
+    border-radius: 8px;
+    width: 100px;
+    height: 40px;
+    border-style: none;
+    color: white;
+}
+
+#loginBtn:hover{
+    background: #2BB34F;
+    cursor: pointer;
+}
+
+.loginActionDiv{
+    margin: 11px -11px;
+}
+
+.anchorDiv{
+    margin: 5px -30px;
+}
 
 .carousel img{
     width: 453px;
     height: 660px;
 }
 
+#btnContainer{
+    display: grid;
+    margin: 0 auto;
+}
 
+#btnContainer button{
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #FFFFFF;
+    padding: 0;
+    height: 40px;
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-style: none;
+}
 
-@media only screen and (max-width: 1450px) {
-    .carousel img{
-        display: none;
-    }
+#btnContainer i{
+    width: 25px;
+    margin-left: 10px;
+}
 
+#btnContainer p{
+    margin-left: 15px;
+}
 
+#fb{
+    background: #3B5998;
+    border-radius: 8px;
+}
+
+#fb:hover{
+    background: #263C68;
+}
+
+#fb i{
+    border-radius: 8px 0px 0px 8px; 
+}
+
+#tw{
+    background: #00ACED;
+    border-radius: 8px;
+}
+
+#tw:hover{
+    background: #0695CB;
+}
+
+#tw i{
+    border-radius: 8px 0px 0px 8px;
+}
+
+#go{
+    background: #C7C7C7;
+    border-radius: 8px;
+}
+
+#go:hover{
+    background: #9D9D9D;
+}
+
+#go i{
+    border-radius: 8px 0px 0px 8px;
+}
+
+@media only screen and (max-width: 1024px) {
     .loginBox{
+        width: 100%;
         height: 100%;
         border-radius: 0px;
+    }
+
+    .loginForm{
+        padding: 0 15vw;
+    }
+
+    .carousel img{
+        display: none;
     }
 
     h1{

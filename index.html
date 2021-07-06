@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>GameFinder-Login</title>
 </head>
 <body>
@@ -14,23 +16,33 @@
                 
                 <form id="loginForm" class="loginForm">
                     <h1><span>GAME</span>FINDER</h1>
-                    <input type="text" placeholder="Username or Email">
-                    <input type="password" placeholder="Password">
+                    <div id="userFieldContainer">
+                        <i class="fas fa-user-circle"></i>
+                        <input type="text" placeholder="Username or Email">
+                    </div>
+                    <div id="passFieldContainer">
+                        <i class="fas fa-key"></i>
+                        <input type="password" placeholder="Password">
+                        <i id="showPassword"class="fas fa-eye"></i>    
+                    </div>
+                    
                     <div class="loginActionDiv">
                         <div id="checkBox">
                             <input type="checkbox" name="RememberMe">
                             <label for="RememberMe">Remeber Me</label>
                         </div>
-                        <input type="submit" value="LOGIN">
+                        <input id="loginBtn" type="submit" value="LOGIN">
                     </div>
                     <div class="anchorDiv">
                         <a href="#">Register Now</a>
                         <a href="#">Forgot password?</a>
                     </div>  
                     <h4>or</h4>
-                    <input type="button" value="LOGIN WITH FACEBOOK">
-                    <input type="button" value="LOGIN WITH TWITTER">
-                    <input type="button" value="LOGIN WITH GOOGLE">
+                    <div id="btnContainer" class="btnContainer">
+                        <button id="fb"><i class="fab fa-facebook fa-lg"></i><p>LOGIN WITH FACEBOOK</p></button>
+                        <button id="tw"><i class="fab fa-twitter fa-lg"></i><p>LOGIN WITH TWITTER</p> </button>
+                        <button id="go"><i  class="fab fa-google fa-lg"></i><p>LOGIN WITH GOOGLE</p></button>
+                    </div>
                 </form>
                 <div class="carousel">
                     <img src="biomutant.jpeg" alt="imagePlaceholder">
