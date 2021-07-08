@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 
 body{
-    font-family: 'Nunito', sans-serif;
-    color: #FFFFFF;
-    background: #141414;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF !important;
+    background: #141414 !important;
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
 span{
-    font-weight: normal;
+    font-weight: 1000;
 }
 
 a{
@@ -23,6 +24,13 @@ a{
 h4 {
     display: flex;
     flex-direction: row;
+    width: 350px;
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px !important;
+    line-height: 16px;
+    text-align: center;
 }
 
 h4:before,h4:after {
@@ -35,9 +43,6 @@ h4:before,h4:after {
 
 
 .loginPageContaniner{
-    /*display:table; 
-    height:100%; 
-    margin: 10vh auto;*/
     display: table;
     position: absolute;
     top: 0;
@@ -50,19 +55,17 @@ h4:before,h4:after {
 .loginForm{
     float: left;
     width: 100%;
-    /*height: 100%;*/
-    padding: 0 100px;
+    padding: 0 10%;
     display: inline-flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    text-align: center;
-    /*margin:0 10vw;*/
+    text-align: center;  
 }
 
 .loginForm input, button{
     border-radius: 5px;
-    height: 2rem;
+    height: 3rem;
     margin: 1vh 0;
 }
 
@@ -77,6 +80,13 @@ h4:before,h4:after {
     margin-right: .5rem;
     color: #929699;
 }
+
+.loginForm h1{
+    font-size: 45px;
+}
+
+
+
 
 
 
@@ -96,32 +106,74 @@ h4:before,h4:after {
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
 }
 
-#userFieldContainer{
-    display: block;
+#userFieldContainer, #passFieldContainer{
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: 1px solid #8F8F8F;
+    border-radius: 8px;
 }
 
 
 
 #userFieldContainer input{
-    border-style: double;
+    outline: none;
+    margin: 0;
+    border-style: none;
     background: #303030;
-    max-width: 300px;
+    width: 300px;
 }
 
-#passFieldContainer{
-    display: block;
+#userIcon, #passIcon{
+    height: 3rem;
+    width: 40px;
+    color: #D1D1D1;
+    /*border-radius: 8px 0px 0px 8px;*/
+    border-right: 1px solid #8F8F8F;
+
 }
+
+ 
+
+#userFieldContainer:focus-within, #userFieldContainer:focus-within #userIcon{
+    border-color: white;
+    color: white;
+}
+
+
+
+
+
+
 
 #passFieldContainer input{
-    border-style: double;
+    outline: none;
+    margin: 0;
+    padding-right: 40px;
+    border-style: none;
     background: #303030;
-    max-width: 300px;
+    width: 300px;
 }
 
+#passFieldContainer:focus-within, #passFieldContainer:focus-within #passIcon, #passFieldContainer:focus-within #showPassword{
+    border-color: white;
+    color: white;
+}
+
+#labelCheckbox{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        color: #929699;
+}
+
+
 #showPassword{
+    color: #D1D1D1;
     cursor: pointer;
     margin-left: -30px;
-    margin-right: 9px;
+    margin-right: 13px;
 }
 
 .verticalAlign{
@@ -139,17 +191,26 @@ h4:before,h4:after {
 }
 
 #loginBtn:hover{
-    background: #2BB34F;
+    background: #7CD235;
     cursor: pointer;
 }
 
-.loginActionDiv{
-    margin: 11px -11px;
+#loginBtn:active{
+    background: linear-gradient(180deg, #7CD235 0%, #2BB34F 100%);
 }
 
-.anchorDiv{
-    margin: 5px -30px;
+#loginBtn:focus{
+    background: linear-gradient(180deg, #7CD235 0%, #2BB34F 100%);
 }
+
+#loginActionDiv, #anchorDiv{
+    width: 340px;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 .carousel img{
     width: 453px;
@@ -181,13 +242,30 @@ h4:before,h4:after {
     margin-left: 10px;
 }
 
-#btnContainer p{
-    margin-left: 15px;
+#btnContainer .socialIcon{
+    height: 40px;
+    padding-right: 7px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+#btnContainer .txt-btn-social{
+    margin: 0 auto;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 #fb{
     background: #3B5998;
     border-radius: 8px;
+}
+
+#fb .socialIcon{
+    background: #263C68;
 }
 
 #fb:hover{
@@ -203,6 +281,10 @@ h4:before,h4:after {
     border-radius: 8px;
 }
 
+#tw .socialIcon{
+    background: #0695CB;
+}
+
 #tw:hover{
     background: #0695CB;
 }
@@ -216,6 +298,10 @@ h4:before,h4:after {
     border-radius: 8px;
 }
 
+#go .socialIcon{
+    background: #9D9D9D;
+}
+
 #go:hover{
     background: #9D9D9D;
 }
@@ -224,7 +310,7 @@ h4:before,h4:after {
     border-radius: 8px 0px 0px 8px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1130px) {
     .loginBox{
         width: 100%;
         height: 100%;
@@ -232,7 +318,7 @@ h4:before,h4:after {
     }
 
     .loginForm{
-        padding: 0 15vw;
+        padding: 0;
     }
 
     .carousel img{
@@ -243,6 +329,31 @@ h4:before,h4:after {
         font-size: 8vw;
     }
 }
+
+@media only screen and (max-width: 767px){
+    #userFieldContainer input{
+        width: 210px;
+    }
+
+    #passFieldContainer input{
+        width: 210px;
+    }
+
+    .loginForm h1{
+        font-size: 35px;
+    }
+
+    #loginActionDiv, #anchorDiv{
+        width: 250px;
+    }
+
+    h4{
+        width: 260px;
+    }
+    
+}
+
+
 
 
 
