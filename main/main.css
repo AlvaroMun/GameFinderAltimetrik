@@ -1,0 +1,735 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap");
+
+*,
+ul {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+html,
+body {
+  position: relative;
+  color: #ffffff;
+  background: #141414;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+/*
+body{
+    color: #FFFFFF !important;
+    background: #141414 !important;
+    width: 100%;
+    height: 100%;
+}
+*/
+
+/*------Header-------*/
+.header {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
+}
+
+.profilePicture {
+  height: 45.33px;
+  width: 43.87px;
+  border-radius: 50%;
+  margin-left: 32.32px;
+}
+
+.profileMenu {
+  position: absolute;
+  right: 0;
+  width: 165px;
+  margin: 0 37.81px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#searchBtnMovil {
+  display: none;
+  border: none;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.logOutBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.logOutBtnTxt {
+  margin-right: 11px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+}
+
+.sideMenuToogle {
+  position: absolute;
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 40px;
+  left: 0px;
+}
+
+.searchContainer {
+  width: 362px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.searchContainer svg {
+  height: 16px;
+  width: 16px;
+  fill: #a6a6a6;
+  margin-right: -30px;
+  z-index: 1000;
+}
+
+.searchContainer input {
+  outline: none;
+  padding-left: 40px;
+  background: #f1f1f1;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  position: absolute;
+  left: 0px;
+  margin-left: 15px;
+  width: 250px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 1.74222px;
+}
+
+span {
+  font-weight: 800;
+}
+
+a,
+li,
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#middleSideMenu a,
+#bottomSideMenu a {
+  margin-left: 10px;
+}
+
+a:link {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 30px;
+  color: white;
+}
+
+.sideNav {
+  width: 250px;
+  float: left;
+  padding-left: 40px;
+}
+
+.sideNavMenu {
+  padding: 0;
+}
+
+.sideNavMenu ul {
+  margin: 15px 0;
+}
+
+.importantMenuItem {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+#topSideMenu li {
+  margin: 10px 0;
+}
+
+.sideMenuIconContainer {
+  width: 16px;
+  height: 15px;
+  position: relative;
+}
+
+.sideMenuIconContainer img {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#middleSideMenu li,
+#bottomSideMenu li {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+/*----------------------------main-------------------------------------------*/
+
+section ul {
+  padding: 0;
+  margin: 0;
+}
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.mainHeaderTitle {
+  margin: 0 10px;
+}
+
+/*-----toggle buttons----*/
+.toggleGridContainer {
+  margin-right: 40px;
+}
+
+.gridToggleIcon,
+.listToogleIcon {
+  margin: 0 12px;
+}
+
+.gridToggleBtn,
+.listToogleBtn {
+  background: #141414;
+  border: none;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.mainHeader h2 {
+  margin: 0;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 55px;
+  line-height: 75px;
+}
+
+.mainHeader h4 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.contentWrapper {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#listContent {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+}
+
+/*-------------------------------Game Card---------------------------------*/
+.gameCard {
+  overflow: hidden;
+  position: relative;
+  width: 333px;
+  height: 314px;
+  background: #303030;
+  border-radius: 10px;
+  margin: 12px;
+  transition: margin-top 0.5s;
+  transition-timing-function: ease;
+}
+
+.gameCardDesc {
+  position: absolute;
+  top: 200px;
+  background: #303030;
+  width: 100%;
+  margin: 0;
+  height: 90px;
+  padding: 0 20px;
+}
+
+.gameCardCover {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 366px;
+  width: 363px;
+  /*height: 217.3px;*/
+}
+
+.gameCardData {
+  height: 100%;
+  float: left;
+}
+
+.gameCardData h3 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 23px;
+  line-height: 31px;
+}
+
+.gameCardAtt {
+  width: 210px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gameCardAtt h6 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
+  border-bottom: 1px solid #3d3d3d;
+  color: #939393;
+}
+
+.gameCardAtt h6:nth-child(even) {
+  text-align: end;
+}
+
+.gameCardIcons {
+  height: 85px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.gameCardIcons img {
+  width: 60px;
+  height: 13px;
+}
+
+.giftBtn {
+  border: none;
+  position: relative;
+  outline: none;
+  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  width: 47px;
+  height: 24px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+}
+
+#plusIcon {
+  width: 15px;
+  height: 15px;
+}
+
+#giftIcon {
+  width: 16px;
+  height: 15px;
+}
+
+/*----------------Modal-----------------------------*/
+
+.modalWindow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background: #303030;
+  z-index: 1000;
+}
+
+.modalWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  grid-template-rows: repeat(2, min-content);
+  align-items: center;
+  margin: 34px 91px 65px 79px;
+}
+
+.modalData {
+  margin-right: 52px;
+  width: 468px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modalData h2 {
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 82px;
+}
+
+.modalPlatformsIcons {
+  margin-bottom: 9px;
+}
+
+.modalRanking {
+  margin-bottom: 32px;
+  margin-top: 44px;
+}
+
+.modalData p {
+  font-size: 14px;
+  line-height: 19px;
+  margin: 32px 0;
+}
+
+.modalActionButtons {
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.modalActionButtons button {
+  width: 151px;
+  height: 50px;
+  text-align: left;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+
+  font-size: 12px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.modalActionButtons button span {
+  size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.modalActionButtons button:first-child {
+  width: 125px;
+  margin-right: 20px;
+  background-color: transparent;
+  background: none;
+}
+
+.actionBtnText span {
+  white-space: nowrap;
+}
+
+.modalCommentsActions {
+  margin-bottom: 32px;
+}
+
+.modalGridData ul {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.modalGridData li {
+  margin: 10px 0;
+}
+
+.modalGridData h6,
+.modalGridData a {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
+  color: #939393;
+}
+
+.modalGridData li h6:last-child,
+.modalGridData a {
+  text-decoration-line: underline;
+  color: #ffffff;
+}
+
+.modalCommentsActions {
+  display: flex;
+}
+
+.modalCommentsActions button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #515151;
+  border-radius: 10px;
+  width: 141px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 16px;
+  outline: none;
+  border: none;
+}
+
+.modalCommentsActions button svg {
+  margin-left: 15px;
+}
+
+.modalCommentsActions button:first-child {
+  margin-right: 24px;
+}
+
+.commentsAndData {
+  grid-row: 2/3;
+  margin-right: 52px;
+}
+
+.modalImages {
+  grid-column: 2/3;
+  grid-row: 1/3;
+}
+
+.modalImages ul {
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.modalImages li {
+  justify-self: center;
+  overflow: hidden;
+  width: 184px;
+  height: 104px;
+  margin: 8px 7px;
+}
+
+.modalImages li:first-child {
+  width: 392px;
+  height: 217px;
+  grid-column: span 2;
+}
+
+/*----------------Responsiveness--------------------*/
+
+@media screen and (min-width: 768px) {
+  .gameCard:hover {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1290px) {
+  .sideNav {
+    display: none;
+  }
+
+  #listContent {
+    grid-template-columns: repeat(2, min-content);
+  }
+
+  .header h1 {
+    display: none;
+  }
+
+  .sideMenuToogle {
+    display: initial;
+  }
+
+  .logOutBtn {
+    display: none;
+  }
+
+  /*------Modal--------*/
+
+  .modalWrapper {
+    margin: 39px 30px 0 30px;
+  }
+
+  .modalWindow {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    margin-top: 120px;
+  }
+
+  .modalData {
+    grid-column: 1/3;
+    margin-right: 168px;
+    width: initial;
+  }
+
+  .commentsAndData {
+    margin-right: 10px;
+    grid-row: 2/3;
+  }
+
+  .modalGridData li:nth-child(even) {
+    margin-left: 51px;
+  }
+
+  .modalImages {
+    grid-row: 2/3;
+    margin-right: 30px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #listContent {
+    grid-template-columns: repeat(1, min-content);
+  }
+
+  .gameCard {
+    margin: 5px 0;
+  }
+
+  .searchContainer {
+    display: none;
+  }
+
+  .menu {
+    display: initial;
+  }
+
+  .toggleGridContainer {
+    display: none;
+  }
+
+  #searchBtnMovil {
+    display: initial;
+  }
+
+  .logOutBtn {
+    display: none;
+  }
+
+  .profilePicture {
+    display: none;
+  }
+
+  .profileMenu {
+    width: 50px;
+  }
+
+  .mainHeader h2 {
+    font-size: 45px;
+    line-height: 110%;
+  }
+
+  .mainHeader h4 {
+    font-size: 18px;
+  }
+
+  .header {
+    height: 104px;
+  }
+  .gameCard {
+    width: 320px;
+    height: 321px;
+    position: relative;
+  }
+
+  .gameCardData {
+    margin-top: 10px;
+    height: 90px;
+  }
+
+  .gameCardDesc {
+    height: 136px;
+    top: 185px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .gameCardIcons {
+    width: 100%;
+    height: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  /*------Modal--------*/
+
+  .modalWindow {
+    margin-top: 102px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .modalWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .modalData h2 {
+    font-size: 40px;
+    line-height: 54px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .gameCard {
+    border-radius: 0;
+  }
+}
+
+/* bootstrap
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+*/

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--S-tyle sheets-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- bootstrap Scripts-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>GameFinder-Main</title>
+  </head>
+  <body>
+    <!--start of header-->
+    <header class="header">
+      <span class="sideMenuToogle">&#9776;</span>
+      <h1>GAME<span>FINDER</span></h1>
+      <div class="searchContainer">
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 16 16"
+          style="enable-background: new 0 0 16 16"
+          xml:space="preserve"
+        >
+          <path
+            class="st0"
+            d="M11.7,10.3c2.1-2.9,1.5-7-1.4-9.1s-7-1.5-9.1,1.4s-1.5,7,1.4,9.1c2.3,1.7,5.4,1.7,7.7,0h0c0,0,0.1,0.1,0.1,0.1
+                    l3.8,3.8c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4l-3.8-3.9C11.8,10.4,11.8,10.4,11.7,10.3L11.7,10.3z M12,6.5c0,3-2.5,5.5-5.5,5.5
+                    S1,9.5,1,6.5S3.5,1,6.5,1S12,3.5,12,6.5z"
+          />
+        </svg>
+        <input id="searchInput" type="text" placeholder="search" />
+      </div>
+      <div class="profileMenu">
+        <button class="logOutBtn">
+          <div class="logOutBtnTxt">Logout</div>
+          <svg
+            width="16"
+            height="12"
+            viewBox="0 0 16 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 10.5C10 10.7761 9.77614 11 9.5 11H1.5C1.22386 11 1 10.7761 1 10.5V1.5C1 1.22386 1.22386 1 1.5 1H9.5C9.77614 1 10 1.22386 10 1.5V3.5C10 3.77614 10.2239 4 10.5 4C10.7761 4 11 3.77614 11 3.5V1.5C11 0.671573 10.3284 0 9.5 0H1.5C0.671573 0 0 0.671573 0 1.5V10.5C0 11.3284 0.671573 12 1.5 12H9.5C10.3284 12 11 11.3284 11 10.5V8.5C11 8.22386 10.7761 8 10.5 8C10.2239 8 10 8.22386 10 8.5V10.5Z"
+              fill="white"
+            />
+            <path
+              d="M15.854 6.35402C15.948 6.26022 16.0009 6.13285 16.0009 6.00002C16.0009 5.86719 15.948 5.73983 15.854 5.64602L12.854 2.64602C12.6585 2.45051 12.3415 2.45051 12.146 2.64602C11.9505 2.84153 11.9505 3.15851 12.146 3.35402L14.293 5.50002H5.5C5.22386 5.50002 5 5.72388 5 6.00002C5 6.27616 5.22386 6.50002 5.5 6.50002H14.293L12.146 8.64602C11.9505 8.84153 11.9505 9.15851 12.146 9.35402C12.3415 9.54953 12.6585 9.54953 12.854 9.35402L15.854 6.35402Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <img class="profilePicture" src="profilePic.jpg" alt="profilePicture" />
+        <button id="searchBtnMovil">
+          <svg
+            width="24"
+            height="23"
+            viewBox="0 0 24 23"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.8828 14.8675C19.7694 10.9276 19.135 5.42934 15.4269 2.25034C11.7186 -0.928902 6.18737 -0.715774 2.73467 2.7394C-0.718032 6.19457 -0.927202 11.7259 2.2547 15.432C5.43635 19.1378 10.9351 19.7682 14.8728 16.8789C14.9158 16.9361 14.9617 16.9906 15.0132 17.0435L20.5482 22.5785C21.1095 23.1402 22.02 23.1405 22.5817 22.5792C23.1435 22.0178 23.1438 21.1074 22.5824 20.5456L17.0475 15.0107C16.9963 14.9589 16.9413 14.911 16.8828 14.8675ZM13.2995 16.1898C15.746 14.7773 17.2531 12.167 17.2531 9.34207C17.2531 4.97512 13.713 1.43501 9.34602 1.43501C4.97907 1.43501 1.43896 4.97512 1.43896 9.34207C1.43896 12.167 2.94604 14.7773 5.39249 16.1898C7.83894 17.6022 10.8531 17.6022 13.2995 16.1898Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!--end of header-->
+    <!--Sidebar-->
+    <aside class="sideNav">
+      <ul class="sideNavMenu">
+        <ul id="topSideMenu">
+          <li>
+            <a class="importantMenuItem" href="#">Home</a>
+          </li>
+          <li>
+            <a class="importantMenuItem" href="#">Reviews</a>
+          </li>
+          <li>
+            <a class="importantMenuItem" href="#">New Realeses</a>
+          </li>
+        </ul>
+        <ul id="middleSideMenu">
+          <li>
+            <div class="sideMenuIconContainer">
+              <img
+                src="/GameFinderAltimetrik/icons/star-fill.svg"
+                alt="star-fill"
+              />
+            </div>
+            <a href="#">This week</a>
+          </li>
+          <li>
+            <div class="sideMenuIconContainer">
+              <img
+                src="/GameFinderAltimetrik/icons/calendar-fill.svg"
+                alt="calendar-fill"
+              />
+            </div>
+            <a href="#">This month</a>
+          </li>
+          <li>
+            <div class="sideMenuIconContainer">
+              <img
+                src="/GameFinderAltimetrik/icons/flag-fill.svg"
+                alt="flag-fill"
+              />
+            </div>
+            <a href="#">Coming soon</a>
+          </li>
+        </ul>
+        <ul id="populaSideMenu">
+          <a class="importantMenuItem" href="#">Popular</a>
+        </ul>
+        <ul id="bottomSideMenu">
+          <li>
+            <div class="sideMenuIconContainer">
+              <img src="/GameFinderAltimetrik/icons/search.svg" alt="search" />
+            </div>
+            <a href="#">Last searches</a>
+          </li>
+          <li>
+            <div class="sideMenuIconContainer">
+              <img
+                src="/GameFinderAltimetrik/icons/trophy-fill.svg"
+                alt="trophy-fill"
+              />
+            </div>
+            <a href="#">Best of the year</a>
+          </li>
+        </ul>
+      </ul>
+    </aside>
+    <!--end of sidebar-->
+    <!--Start of main content(grid)-->
+    <header class="mainHeader">
+      <div class="mainHeaderTitle">
+        <h2>New and trending</h2>
+        <h4>Based on player counts and realease date</h4>
+      </div>
+      <div class="toggleGridContainer">
+        <button class="gridToggleBtn">
+          <svg
+            class="gridToggleIcon"
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="40" height="40" rx="10" fill="#515151" />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M27.543 8.79993H13.2573C11.6793 8.79993 10.4001 10.0791 10.4001 11.6571V15.9428C10.4001 17.5207 11.6793 18.7999 13.2573 18.7999H27.543C29.121 18.7999 30.4001 17.5207 30.4001 15.9428V11.6571C30.4001 10.0791 29.121 8.79993 27.543 8.79993ZM11.8288 11.6571C11.8288 10.8681 12.4684 10.2285 13.2573 10.2285H27.5431C28.332 10.2285 28.9716 10.8681 28.9716 11.6571V15.9428C28.9716 16.7318 28.332 17.3714 27.5431 17.3714H13.2573C12.4684 17.3714 11.8288 16.7318 11.8288 15.9428V11.6571ZM13.2573 21.6571H27.543C29.121 21.6571 30.4001 22.9362 30.4001 24.5142V28.7999C30.4001 30.3779 29.121 31.6571 27.543 31.6571H13.2573C11.6793 31.6571 10.4001 30.3779 10.4001 28.7999V24.5142C10.4001 22.9362 11.6793 21.6571 13.2573 21.6571ZM11.8288 24.5141C11.8288 23.7252 12.4684 23.0856 13.2573 23.0856H27.5431C28.332 23.0856 28.9716 23.7252 28.9716 24.5141V28.7999C28.9716 29.5888 28.332 30.2284 27.5431 30.2284H13.2573C12.4684 30.2284 11.8288 29.5888 11.8288 28.7999V24.5141Z"
+              fill="black"
+            />
+          </svg>
+        </button>
+        <button class="listToogleBtn">
+          <svg
+            class="listToogleIcon"
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="40" height="40" rx="10" fill="#303030" />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.4001 11.8287C10.4001 11.4342 10.7199 11.1144 11.1144 11.1144H29.6859C30.0804 11.1144 30.4001 11.4342 30.4001 11.8287C30.4001 12.2232 30.0804 12.543 29.6859 12.543H11.1144C10.7199 12.543 10.4001 12.2232 10.4001 11.8287ZM27.543 15.4001H13.2573C11.6793 15.4001 10.4001 16.6793 10.4001 18.2572V22.5429C10.4001 24.1209 11.6793 25.4001 13.2573 25.4001H27.543C29.121 25.4001 30.4001 24.1209 30.4001 22.5429V18.2572C30.4001 16.6793 29.121 15.4001 27.543 15.4001ZM11.8289 18.2573C11.8289 17.4684 12.4685 16.8288 13.2574 16.8288H27.5431C28.3321 16.8288 28.9717 17.4684 28.9717 18.2573V22.5431C28.9717 23.332 28.3321 23.9716 27.5431 23.9716H13.2574C12.4685 23.9716 11.8289 23.332 11.8289 22.5431V18.2573ZM11.1144 28.2573C10.7199 28.2573 10.4001 28.5771 10.4001 28.9716C10.4001 29.3661 10.7199 29.6859 11.1144 29.6859H29.6859C30.0804 29.6859 30.4001 29.3661 30.4001 28.9716C30.4001 28.5771 30.0804 28.2573 29.6859 28.2573H11.1144Z"
+              fill="black"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main class="contentWrapper">
+      <ul id="listContent">
+        <li>
+          <div class="gameCard">
+            <img
+              src="biomutantCard.jpg"
+              class="gameCardCover"
+              alt="game cover"
+            />
+            <div class="gameCardDesc">
+              <div class="gameCardData">
+                <h3>Biomutant</h3>
+                <div class="gameCardAtt">
+                  <h6>Release date</h6>
+                  <h6>May 31 2021</h6>
+                  <h6>Genres</h6>
+                  <h6>Action, RPG</h6>
+                </div>
+              </div>
+              <div class="gameCardIcons">
+                <img
+                  src="/GameFinderAltimetrik/icons/platform.svg"
+                  alt="platformsIcons"
+                />
+                #1
+                <button class="giftBtn">
+                  <img
+                    id="plusIcon"
+                    src="/GameFinderAltimetrik/icons/plus.svg"
+                    alt="plus"
+                  />
+                  <img
+                    id="giftIcon"
+                    src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                    alt="gift"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gameCard">
+            <img
+              src="biomutantCard.jpg"
+              class="gameCardCover"
+              alt="game cover"
+            />
+            <div class="gameCardDesc">
+              <div class="gameCardData">
+                <h3>Biomutant</h3>
+                <div class="gameCardAtt">
+                  <h6>Release date</h6>
+                  <h6>May 31 2021</h6>
+                  <h6>Genres</h6>
+                  <h6>Action, RPG</h6>
+                </div>
+              </div>
+              <div class="gameCardIcons">
+                <img
+                  src="/GameFinderAltimetrik/icons/platform.svg"
+                  alt="platformsIcons"
+                />
+                #1
+                <button class="giftBtn">
+                  <img
+                    id="plusIcon"
+                    src="/GameFinderAltimetrik/icons/plus.svg"
+                    alt="plus"
+                  />
+                  <img
+                    id="giftIcon"
+                    src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                    alt="gift"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gameCard">
+            <img
+              src="biomutantCard.jpg"
+              class="gameCardCover"
+              alt="game cover"
+            />
+            <div class="gameCardDesc">
+              <div class="gameCardData">
+                <h3>Biomutant</h3>
+                <div class="gameCardAtt">
+                  <h6>Release date</h6>
+                  <h6>May 31 2021</h6>
+                  <h6>Genres</h6>
+                  <h6>Action, RPG</h6>
+                </div>
+              </div>
+              <div class="gameCardIcons">
+                <img
+                  src="/GameFinderAltimetrik/icons/platform.svg"
+                  alt="platformsIcons"
+                />
+                #1
+                <button class="giftBtn">
+                  <img
+                    id="plusIcon"
+                    src="/GameFinderAltimetrik/icons/plus.svg"
+                    alt="plus"
+                  />
+                  <img
+                    id="giftIcon"
+                    src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                    alt="gift"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gameCard">
+            <img
+              src="biomutantCard.jpg"
+              class="gameCardCover"
+              alt="game cover"
+            />
+            <div class="gameCardDesc">
+              <div class="gameCardData">
+                <h3>Biomutant</h3>
+                <div class="gameCardAtt">
+                  <h6>Release date</h6>
+                  <h6>May 31 2021</h6>
+                  <h6>Genres</h6>
+                  <h6>Action, RPG</h6>
+                </div>
+              </div>
+              <div class="gameCardIcons">
+                <img
+                  src="/GameFinderAltimetrik/icons/platform.svg"
+                  alt="platformsIcons"
+                />
+                #1
+                <button class="giftBtn">
+                  <img
+                    id="plusIcon"
+                    src="/GameFinderAltimetrik/icons/plus.svg"
+                    alt="plus"
+                  />
+                  <img
+                    id="giftIcon"
+                    src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                    alt="gift"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gameCard">
+            <img
+              src="biomutantCard.jpg"
+              class="gameCardCover"
+              alt="game cover"
+            />
+            <div class="gameCardDesc">
+              <div class="gameCardData">
+                <h3>Biomutant</h3>
+                <div class="gameCardAtt">
+                  <h6>Release date</h6>
+                  <h6>May 31 2021</h6>
+                  <h6>Genres</h6>
+                  <h6>Action, RPG</h6>
+                </div>
+              </div>
+              <div class="gameCardIcons">
+                <img
+                  src="/GameFinderAltimetrik/icons/platform.svg"
+                  alt="platformsIcons"
+                />
+                #1
+                <button class="giftBtn">
+                  <img
+                    id="plusIcon"
+                    src="/GameFinderAltimetrik/icons/plus.svg"
+                    alt="plus"
+                  />
+                  <img
+                    id="giftIcon"
+                    src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                    alt="gift"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gameCard">
+            <img
+              src="biomutantCard.jpg"
+              class="gameCardCover"
+              alt="game cover"
+            />
+            <div class="gameCardDesc">
+              <div class="gameCardData">
+                <h3>Biomutant</h3>
+                <div class="gameCardAtt">
+                  <h6>Release date</h6>
+                  <h6>May 31 2021</h6>
+                  <h6>Genres</h6>
+                  <h6>Action, RPG</h6>
+                </div>
+              </div>
+              <div class="gameCardIcons">
+                <img
+                  src="/GameFinderAltimetrik/icons/platform.svg"
+                  alt="platformsIcons"
+                />
+                #1
+                <button class="giftBtn">
+                  <img
+                    id="plusIcon"
+                    src="/GameFinderAltimetrik/icons/plus.svg"
+                    alt="plus"
+                  />
+                  <img
+                    id="giftIcon"
+                    src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                    alt="gift"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </main>
+    <div class="modalWindow">
+      <div class="modalWrapper">
+        <div class="modalData">
+          <div class="modalPlatformsIcons">
+            <svg
+              width="92"
+              height="20"
+              viewBox="0 0 92 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M92 9.16667H81.1667V1.53647L92 0V9.16667ZM80.3333 1.66667V9.16667H72V2.77865L80.3333 1.66667ZM80.3333 10H72V17.0992L80.3333 18.3333V10ZM81.1667 18.3262V10H92V20L81.1667 18.3262Z"
+                fill="white"
+              />
+              <path
+                d="M10.1462 0.229868L10.1462 18.5072L14.1729 19.8184L14.1729 4.49304C14.1729 3.77089 14.4861 3.29141 14.9886 3.45631C15.6456 3.64358 15.7732 4.30881 15.7732 5.02293L15.7732 11.1436C18.2796 12.3904 20.2528 11.143 20.2528 7.85331C20.2528 4.49174 19.0959 2.99421 15.6919 1.79019C14.3492 1.3307 11.8608 0.555315 10.1462 0.229868Z"
+                fill="white"
+              />
+              <path
+                d="M15.2195 17.143L21.3061 14.5504C21.9947 14.2449 22.0999 13.8299 21.5426 13.6118C20.9766 13.3897 19.9664 13.4533 19.2705 13.7523L15.2195 15.4626V12.7338L15.4515 12.6421C15.4515 12.6421 16.6241 12.1449 18.2733 11.9309C19.9194 11.7149 21.9382 11.959 23.5248 12.6747C25.3121 13.3542 25.5124 14.3454 25.0602 15.0352C24.6015 15.7178 23.4891 16.2116 23.4891 16.2116L15.2195 19.7668"
+                fill="white"
+              />
+              <path
+                d="M1.85605 17.4446C-0.0435029 16.8743 -0.360267 15.6694 0.506297 14.9734C1.30563 14.3379 2.66693 13.8594 2.66693 13.8594L8.29423 11.6974V14.1581L4.24848 15.7208C3.53185 15.997 3.4244 16.3857 4.00163 16.589C4.58917 16.8006 5.63185 16.7437 6.3489 16.4586L8.29423 15.7028V17.8994C8.16885 17.9221 8.02944 17.945 7.9022 17.9683C5.96264 18.3152 3.89625 18.1728 1.85605 17.4446Z"
+                fill="white"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M25.1741 19.6889C25.0142 19.8445 24.8044 19.9324 24.5784 19.9324C24.3525 19.9324 24.1358 19.8445 23.9757 19.6889C23.8177 19.5304 23.7302 19.3236 23.7302 19.1006C23.7302 18.6388 24.1095 18.2657 24.5784 18.2657C24.8044 18.2657 25.0142 18.3508 25.1741 18.5098C25.3321 18.6652 25.4213 18.8756 25.4213 19.1006C25.4213 19.3236 25.3321 19.5304 25.1741 19.6889ZM23.8727 19.1006C23.8727 18.9108 23.9448 18.7367 24.0764 18.6076C24.2113 18.4757 24.3914 18.4047 24.5784 18.4047C24.7657 18.4047 24.9411 18.4757 25.0728 18.6076C25.2056 18.7367 25.2773 18.9108 25.2773 19.1006C25.2773 19.4811 24.9635 19.7899 24.5784 19.7899C24.3914 19.7899 24.2113 19.7195 24.0764 19.5894C23.9448 19.4581 23.8727 19.2858 23.8727 19.1006ZM24.9643 19.4468C24.9719 19.4683 24.981 19.4811 24.9941 19.4848L25.0058 19.4913V19.5443H24.8224L24.819 19.5336L24.8064 19.5016C24.8044 19.4848 24.8019 19.4627 24.7994 19.4257L24.7913 19.2807C24.7892 19.2293 24.7721 19.1994 24.7406 19.1796C24.7173 19.1719 24.6854 19.1659 24.638 19.1659H24.3832V19.5443H24.2161V18.6149H24.6543C24.7258 18.6149 24.786 18.6274 24.8321 18.6467C24.9244 18.6895 24.9719 18.7668 24.9719 18.8754C24.9719 18.9287 24.9584 18.9787 24.9353 19.0155C24.9151 19.0415 24.8914 19.0653 24.8656 19.0885L24.8725 19.0932C24.89 19.1054 24.9074 19.1173 24.9176 19.135C24.9409 19.1605 24.9516 19.2031 24.9535 19.2579L24.9576 19.3763C24.9584 19.4066 24.9609 19.4302 24.9643 19.4468ZM24.7666 18.9899C24.7937 18.9727 24.8064 18.9385 24.8064 18.8861C24.8064 18.8309 24.7871 18.7941 24.7491 18.7758C24.7258 18.7668 24.6968 18.7602 24.6579 18.7602H24.3832V19.0213H24.6427C24.6943 19.0213 24.7353 19.0109 24.7666 18.9899Z"
+                fill="white"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M50 0C51.9286 0 53.5238 0.616246 54.9762 1.65266C55 1.65266 55 1.68067 55 1.70868C55 1.73669 54.9762 1.73669 54.9524 1.73669C53.0952 1.2605 50.2857 3.13725 50.0238 3.33333H50H49.9762C49.7143 3.13725 46.9048 1.2605 45.0476 1.73669C45.0238 1.73669 45 1.73669 45 1.70868C45 1.68067 45 1.65266 45.0238 1.65266C46.4762 0.616246 48.0714 0 50 0ZM56.3903 17.5988C57.8903 16.0464 52.9308 10.5648 50.0035 8.33333C50.0035 8.33333 49.9794 8.33333 49.9794 8.35759C47.0763 10.5648 42.0926 16.0464 43.6167 17.5988C45.3102 19.1026 47.5601 20 50.0035 20C52.447 20 54.6727 19.1026 56.3903 17.5988ZM42.7397 3.38078C42.7283 3.38078 42.7226 3.38705 42.7169 3.39332C42.7112 3.39959 42.7055 3.40585 42.6941 3.40585C41.0274 5.2358 40 7.76763 40 10.5501C40 12.8313 40.7078 14.9621 41.8721 16.6416C41.8721 16.6667 41.895 16.6667 41.9178 16.6667C41.9406 16.6667 41.9406 16.6416 41.9178 16.6165C41.21 14.2351 44.7945 8.4946 46.6438 6.0881L46.6667 6.06303C46.6667 6.03796 46.6667 6.03796 46.6438 6.03796C43.8356 2.9797 42.8995 3.30558 42.7397 3.38078ZM53.3333 6.05268L53.3562 6.02759C56.1644 2.99144 57.1005 3.31764 57.2374 3.36782C57.2469 3.36782 57.2525 3.36782 57.2574 3.36962C57.2642 3.37215 57.2698 3.37825 57.2831 3.39291C58.9726 5.22464 60 7.75895 60 10.5442C60 12.8276 59.2922 14.9604 58.1279 16.6416C58.1279 16.6667 58.105 16.6667 58.0822 16.6667V16.6165C58.7671 14.2327 55.2055 8.48662 53.3562 6.07777C53.3333 6.07777 53.3333 6.05268 53.3333 6.05268Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+
+          <h2>Biomutant</h2>
+          <div class="modalRanking">top 1</div>
+          <div class="modalActionButtons">
+            <button>
+              <div>
+                Where to <br />
+                <span>buy</span>
+              </div>
+              <div>
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 13 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.21094 7.82812H0.675781V5.26172H5.21094V0.691406H7.77734V5.26172H12.3125V7.82812H7.77734V12.3398H5.21094V7.82812Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button>
+              <div class="actionBtnText">
+                Add to <br />
+                <span>wish list</span>
+              </div>
+              <div>
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.6875 3.90625C4.6875 1.74889 6.43639 0 8.59375 0C10.7511 0 12.5 1.74889 12.5 3.90625C12.5 1.74889 14.2489 0 16.4062 0C18.5636 0 20.3125 1.74889 20.3125 3.90625V3.91563C20.3125 4.025 20.3125 4.3375 20.2531 4.6875H23.4375C24.3004 4.6875 25 5.38705 25 6.25V7.8125C25 8.67544 24.3004 9.375 23.4375 9.375H1.5625C0.699555 9.375 0 8.67544 0 7.8125V6.25C0 5.38705 0.699555 4.6875 1.5625 4.6875H4.74687C4.70561 4.43231 4.68574 4.17412 4.6875 3.91563V3.90625ZM6.35625 4.6875H10.9375V3.90625C10.9375 3.06891 10.4908 2.29517 9.76562 1.8765C9.04047 1.45783 8.14703 1.45783 7.42188 1.8765C6.69672 2.29517 6.25 3.06891 6.25 3.90625C6.25 4.03906 6.25313 4.33437 6.32031 4.57812C6.3297 4.61538 6.34171 4.65193 6.35625 4.6875ZM18.6437 4.6875H14.0625V3.90625C14.0625 2.61183 15.1118 1.5625 16.4062 1.5625C17.7007 1.5625 18.75 2.61183 18.75 3.90625C18.75 4.03906 18.7469 4.33437 18.6797 4.57812C18.6701 4.61533 18.6581 4.65187 18.6437 4.6875ZM23.4375 10.9375V22.6562C23.4375 23.9507 22.3882 25 21.0938 25H14.0625V10.9375H23.4375ZM1.5625 22.6562C1.5625 23.9507 2.61183 25 3.90625 25H10.9375V10.9375H1.5625V22.6562Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget
+            rutrum nulla. Nullam rutrum est nec risus ullamcorper sagittis.
+            Phasellus tempor quam non purus dictum, nec rhoncus nulla fringilla.
+            Nulla semper nisl id augue rhoncus suscipit. Vivamus sit amet massa
+            mi. Nunc gravida sem id tellus lobortis, ut egestas odio elementum.
+          </p>
+        </div>
+        <div class="commentsAndData">
+          <div class="modalCommentsActions">
+            <button>
+              Left a comment
+              <div class="commentIcon">
+                <svg
+                  width="16"
+                  height="15"
+                  viewBox="0 0 16 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8 14C12.418 14 16 10.866 16 7C16 3.134 12.418 0 8 0C3.582 0 0 3.134 0 7C0 8.76 0.744 10.37 1.969 11.6C1.873 12.616 1.553 13.73 1.199 14.566C1.12 14.752 1.272 14.96 1.472 14.928C3.728 14.558 5.069 13.99 5.653 13.694C6.41859 13.8982 7.20765 14.0011 8 14ZM4 6C4.55228 6 5 6.44772 5 7C5 7.55228 4.55228 8 4 8C3.44772 8 3 7.55228 3 7C3 6.44772 3.44772 6 4 6ZM9 7C9 6.44772 8.55229 6 8 6C7.44772 6 7 6.44772 7 7C7 7.55228 7.44772 8 8 8C8.55229 8 9 7.55228 9 7ZM13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button>
+              Write a review <br />
+              <div class="commentIcon">
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 13 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.90625 8.10938H0.546875V4.96875H4.90625V0.667969H8.05859V4.96875H12.418V8.10938H8.05859V12.3398H4.90625V8.10938Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+          <div class="modalGridData">
+            <ul>
+              <li>
+                <h6>Platforms</h6>
+                <h6>Playstation 5, PC Xbox One</h6>
+              </li>
+              <li>
+                <h6>Genres</h6>
+                <h6>Action, RPG</h6>
+              </li>
+              <li>
+                <h6>Release date</h6>
+                <h6>May 25, 2021</h6>
+              </li>
+              <li>
+                <h6>Developer</h6>
+                <h6>Experiment 101</h6>
+              </li>
+              <li>
+                <h6>Publisher</h6>
+                <h6>THQ Nordic</h6>
+              </li>
+              <li>
+                <h6>Age rating</h6>
+                <h6>Not rated</h6>
+              </li>
+              <li>
+                <h6>Website</h6>
+                <a href="#">https://biomutant.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modalImages">
+          <ul>
+            <li><img src="https://via.placeholder.com/392x217" alt="" /></li>
+            <li><img src="https://via.placeholder.com/184x104" alt="" /></li>
+            <li><img src="https://via.placeholder.com/184x104" alt="" /></li>
+            <li><img src="https://via.placeholder.com/184x104" alt="" /></li>
+            <li><img src="https://via.placeholder.com/184x104" alt="" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--end of main content-->
+  </body>
+</html>
