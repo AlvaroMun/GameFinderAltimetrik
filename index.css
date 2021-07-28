@@ -115,6 +115,7 @@ button {
   border-style: none;
   background: #303030;
   width: 300px;
+  color: white;
 }
 
 #userIcon,
@@ -143,13 +144,20 @@ button {
   font-weight: normal;
 }
 
-/*----------customize the user's interaction with user and pass input----------*/
-#userFieldContainer:focus-within,
-#userFieldContainer:focus-within #userIcon {
-  border-color: white;
-  color: white;
+#userSvg,
+#passSvg {
+  fill: #d1d1d1;
 }
 
+/*----------customize the user's interaction with user and pass input----------*/
+/*
+#userFieldContainer:focus-within,
+#userFieldContainer:focus-within svg {
+  border-color: white;
+  color: white;
+  fill: white;
+}
+*/
 #passFieldContainer input {
   outline: none;
   margin: 0;
@@ -157,13 +165,26 @@ button {
   border-style: none;
   background: #303030;
   width: 300px;
+  color: white;
 }
 
+/*
 #passFieldContainer:focus-within,
 #passFieldContainer:focus-within #passIcon,
 #passFieldContainer:focus-within #showPassword {
   border-color: white;
   color: white;
+}
+*/
+
+/*-------input autocomplete--------------*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: #303030;
+  -webkit-box-shadow: 0 0 0 30px #303030 inset !important;
+  -webkit-text-fill-color: white;
 }
 
 /*-----------checkbox-----------------------*/
