@@ -1,109 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
-    
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="index.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--My JS scripts-->
+    <script type="text/javascript" src="./js/login.js"></script>
+
     <title>GameFinder-Login</title>
-</head>
-<body>
+  </head>
+  <body>
+    <noscript>You need JS to run this app</noscript>
     <div class="loginPageContaniner">
-            <div class="loginBox">
-                <form id="loginForm" class="loginForm">
-                    <h1>GAME<span>FINDER</span></h1>
-                    <div id="userFieldContainer">
-                        <div id="userIcon">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <input type="text" id="userInput" placeholder="Username or Email">
-                    </div>
-                    <div id="passFieldContainer">
-                        <div id="passIcon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <input type="password" placeholder="Password">
-                        <i id="showPassword"class="fas fa-eye"></i>    
-                    </div>
-                    
-                    <div id="loginActionDiv">
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            Remember me
-                        </label>
-                        <input id="loginBtn" type="submit" value="LOGIN">
-                    </div>
-                    <div id="anchorDiv">
-                        <a href="#">Register Now</a>
-                        <a href="#">Forgot password?</a>
-                    </div>  
-                    <h4>or</h4>
-                    <div id="socialBtnContainer" class="btnContainer">
-                        <button id="fb">
-                            <div class="socialIcon">
-                                <i class="fab fa-facebook fa-lg"></i>
-                            </div>
-                            <div class="txt-btn-social">
-                                LOGIN WITH FACEBOOK
-                            </div>
-                        </button>
-                        <button id="tw">
-                            <div class="socialIcon">
-                                <i class="fab fa-twitter fa-lg"></i>
-                            </div>
-                            <div class="txt-btn-social">
-                                LOGIN WITH TWITTER
-                            </div> 
-                        </button>
-                        <button id="go">
-                            <div class="socialIcon">
-                                <i  class="fab fa-google fa-lg"></i>
-                            </div>
-                            <div class="txt-btn-social">LOGIN WITH GOOGLE</div>
-                        </button>
-                    </div>
-                </form>        
-                <div id="gamesCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-bs-target="#gamesCarousel" data-bs-slide-to="0" class="active"></li>
-                        <li data-bs-target="#gamesCarousel" data-bs-slide-to="1"></li>
-                        <li data-bs-target="#gamesCarousel" data-bs-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img  src="biomutant.jpeg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img  src="dyingLight.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img  src="mario.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#gamesCarousel" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#gamesCarousel" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+      <div class="loginBox">
+        <form id="loginForm" class="loginForm">
+          <h1>GAME<span>FINDER</span></h1>
+          <div id="userFieldContainer">
+            <div id="userIcon">
+              <svg
+                id="userSvg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.75 7.5C13.75 8.49456 13.3549 9.44839 12.6517 10.1517C11.9484 10.8549 10.9946 11.25 10 11.25C9.00544 11.25 8.05161 10.8549 7.34835 10.1517C6.64509 9.44839 6.25 8.49456 6.25 7.5C6.25 6.50544 6.64509 5.55161 7.34835 4.84835C8.05161 4.14509 9.00544 3.75 10 3.75C10.9946 3.75 11.9484 4.14509 12.6517 4.84835C13.3549 5.55161 13.75 6.50544 13.75 7.5Z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 10C0 7.34784 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34784 0 10 0C12.6522 0 15.1957 1.05357 17.0711 2.92893C18.9464 4.8043 20 7.34784 20 10C20 12.6522 18.9464 15.1957 17.0711 17.0711C15.1957 18.9464 12.6522 20 10 20C7.34784 20 4.8043 18.9464 2.92893 17.0711C1.05357 15.1957 0 12.6522 0 10ZM10 1.25C8.35222 1.25009 6.73796 1.71545 5.343 2.59253C3.94805 3.46962 2.8291 4.72276 2.11496 6.20774C1.40081 7.69272 1.12048 9.34917 1.30625 10.9864C1.49201 12.6237 2.13632 14.1753 3.165 15.4625C4.0525 14.0325 6.00625 12.5 10 12.5C13.9937 12.5 15.9463 14.0312 16.835 15.4625C17.8637 14.1753 18.508 12.6237 18.6938 10.9864C18.8795 9.34917 18.5992 7.69272 17.885 6.20774C17.1709 4.72276 16.052 3.46962 14.657 2.59253C13.262 1.71545 11.6478 1.25009 10 1.25Z"
+                />
+              </svg>
             </div>
+            <input type="text" id="userInput" placeholder="Email" />
+          </div>
+          <span id="errorMail" class="errorMsg"></span>
+          <div id="passFieldContainer">
+            <div id="passIcon">
+              <svg
+                id="passSvg"
+                width="21"
+                height="9"
+                viewBox="0 0 21 9"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.74118 9C3.89257 8.99984 3.05956 8.78359 2.32904 8.37381C1.59852 7.96404 0.997262 7.37575 0.587984 6.67033C0.178707 5.9649 -0.0235928 5.16818 0.00218968 4.36328C0.0279722 3.55838 0.280892 2.77479 0.734565 2.09426C1.18824 1.41372 1.82604 0.861178 2.58144 0.494264C3.33684 0.12735 4.18215 -0.0404908 5.0292 0.0082526C5.87625 0.056996 6.694 0.320537 7.39714 0.771382C8.10028 1.22223 8.66304 1.84386 9.02673 2.57143L18.9676 2.57143L21 4.5L18.9676 6.42857L17.6127 5.14286L16.2578 6.42857L14.9029 5.14286L13.548 6.42857L12.1931 5.14286L10.8382 6.42857H9.02673C8.64207 7.19811 8.03515 7.84825 7.27653 8.30344C6.51791 8.75863 5.63873 9.00018 4.74118 9ZM3.38628 5.78572C3.74562 5.78572 4.09024 5.65026 4.34434 5.40914C4.59843 5.16802 4.74118 4.84099 4.74118 4.5C4.74118 4.15901 4.59843 3.83198 4.34434 3.59086C4.09024 3.34975 3.74562 3.21429 3.38628 3.21429C3.02693 3.21429 2.68231 3.34975 2.42822 3.59086C2.17412 3.83198 2.03137 4.15901 2.03137 4.5C2.03137 4.84099 2.17412 5.16802 2.42822 5.40914C2.68231 5.65026 3.02693 5.78572 3.38628 5.78572Z"
+                />
+              </svg>
+            </div>
+            <input type="password" id="passwordInput" placeholder="Password" />
+            <i id="showPassword" class="fas fa-eye"></i>
+          </div>
+          <span id="errorPass" class="errorMsg"></span>
+          <div id="loginActionDiv">
+            <label class="container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Remember me
+            </label>
+            <input id="loginBtn" type="submit" value="LOGIN" />
+          </div>
+          <div id="anchorDiv">
+            <a href="#">Register Now</a>
+            <a href="#">Forgot password?</a>
+          </div>
+          <h4>or</h4>
+          <div id="socialBtnContainer" class="btnContainer">
+            <button id="fb">
+              <div class="socialIcon">
+                <i class="fab fa-facebook fa-lg"></i>
+              </div>
+              <div class="txt-btn-social">LOGIN WITH FACEBOOK</div>
+            </button>
+            <button id="tw">
+              <div class="socialIcon">
+                <i class="fab fa-twitter fa-lg"></i>
+              </div>
+              <div class="txt-btn-social">LOGIN WITH TWITTER</div>
+            </button>
+            <button id="go">
+              <div class="socialIcon">
+                <i class="fab fa-google fa-lg"></i>
+              </div>
+              <div class="txt-btn-social">LOGIN WITH GOOGLE</div>
+            </button>
+          </div>
+        </form>
+        <div id="gamesCarousel" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li
+              data-bs-target="#gamesCarousel"
+              data-bs-slide-to="0"
+              class="active"
+            ></li>
+            <li data-bs-target="#gamesCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#gamesCarousel" data-bs-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="biomutant.jpeg" alt="First slide" />
+            </div>
+            <div class="carousel-item">
+              <img src="dyingLight.jpg" alt="Second slide" />
+            </div>
+            <div class="carousel-item">
+              <img src="mario.jpg" alt="Third slide" />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#gamesCarousel"
+            role="button"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#gamesCarousel"
+            role="button"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
     </div>
-
-
-</body>
+  </body>
 </html>
