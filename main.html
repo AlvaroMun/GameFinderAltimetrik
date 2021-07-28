@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Style sheets-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+    <!-- bootstrap Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <title>GameFinder-Main</title>
+</head>
+<body>
+
+    <header class="header">
+        <span class="menu">&#9776;</span>
+        <h1>GAME<span>FINDER</span></h1>
+        <div class="searchContainer">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                <path class="st0" d="M11.7,10.3c2.1-2.9,1.5-7-1.4-9.1s-7-1.5-9.1,1.4s-1.5,7,1.4,9.1c2.3,1.7,5.4,1.7,7.7,0h0c0,0,0.1,0.1,0.1,0.1
+                    l3.8,3.8c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4l-3.8-3.9C11.8,10.4,11.8,10.4,11.7,10.3L11.7,10.3z M12,6.5c0,3-2.5,5.5-5.5,5.5
+                    S1,9.5,1,6.5S3.5,1,6.5,1S12,3.5,12,6.5z"/>
+            </svg>
+            <input type="text" placeholder="search">
+        </div>
+        <div class="profileMenu">
+            <button class="logOutBtn">
+                <div class="logOutBtnTxt">
+                    Logout
+                </div>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 10.5C10 10.7761 9.77614 11 9.5 11H1.5C1.22386 11 1 10.7761 1 10.5V1.5C1 1.22386 1.22386 1 1.5 1H9.5C9.77614 1 10 1.22386 10 1.5V3.5C10 3.77614 10.2239 4 10.5 4C10.7761 4 11 3.77614 11 3.5V1.5C11 0.671573 10.3284 0 9.5 0H1.5C0.671573 0 0 0.671573 0 1.5V10.5C0 11.3284 0.671573 12 1.5 12H9.5C10.3284 12 11 11.3284 11 10.5V8.5C11 8.22386 10.7761 8 10.5 8C10.2239 8 10 8.22386 10 8.5V10.5Z" fill="white"/>
+                    <path d="M15.854 6.35402C15.948 6.26022 16.0009 6.13285 16.0009 6.00002C16.0009 5.86719 15.948 5.73983 15.854 5.64602L12.854 2.64602C12.6585 2.45051 12.3415 2.45051 12.146 2.64602C11.9505 2.84153 11.9505 3.15851 12.146 3.35402L14.293 5.50002H5.5C5.22386 5.50002 5 5.72388 5 6.00002C5 6.27616 5.22386 6.50002 5.5 6.50002H14.293L12.146 8.64602C11.9505 8.84153 11.9505 9.15851 12.146 9.35402C12.3415 9.54953 12.6585 9.54953 12.854 9.35402L15.854 6.35402Z" fill="white"/>
+                </svg>
+            </button>
+            <img class="profilePicture" src="profilePic.jpg" alt="profilePicture">
+        </div>
+    </header>
+
+    <aside class="sideNav">
+        <ul class="sideNavMenu">
+            <ul id="topSideMenu">
+                <li>
+                    <a class="importantMenuItem" href="#">Home</a>
+                </li>
+                <li>
+                    <a class="importantMenuItem" href="#">Reviews</a>
+                </li>
+                <li>
+                    <a class="importantMenuItem" href="#">New Realeses</a>
+                </li>
+            </ul>
+            <ul id="middleSideMenu">
+                <li>
+                    <div class="sideMenuIconContainer">
+                        <img src="/GameFinderAltimetrik/icons/star-fill.svg" alt="star-fill">
+                    </div>
+                    <a href="#">This week</a>
+                </li>
+                <li>
+                    <div class="sideMenuIconContainer">
+                        <img src="/GameFinderAltimetrik/icons/calendar-fill.svg" alt="calendar-fill">
+                    </div>
+                    <a href="#">This month</a>
+                </li>
+                <li>
+                    <div class="sideMenuIconContainer">
+                        <img src="/GameFinderAltimetrik/icons/flag-fill.svg" alt="flag-fill">
+                    </div>
+                    <a href="#">Coming soon</a>
+                </li>
+            </ul>
+            <ul id="populaSideMenu">
+                <a class="importantMenuItem" href="#">Popular</a>
+            </ul>
+            <ul id="bottomSideMenu">
+                <li>
+                    <div class="sideMenuIconContainer">
+                        <img src="/GameFinderAltimetrik/icons/search.svg" alt="search">
+                    </div>
+                    <a href="#">Last searches</a>
+                </li>
+                <li>
+                    <div class="sideMenuIconContainer">
+                        <img src="/GameFinderAltimetrik/icons/trophy-fill.svg" alt="trophy-fill">
+                    </div>
+                    <a href="#">Best of the year</a>
+                </li>
+            </ul>
+            
+        </ul>
+    </aside>
+    <main id="mainContent"> 
+        <header class="mainHeader">
+            <div class="mainHeaderTitle">
+                <h2>New and trending</h2>
+                <h4>Based on player counts and realease date</h4>
+            </div>
+            <div class="toggleGridContainer">
+                <button class="gridToggleBtn">
+                    <svg class="gridToggleIcon"width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="10" fill="#515151"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M27.543 8.79993H13.2573C11.6793 8.79993 10.4001 10.0791 10.4001 11.6571V15.9428C10.4001 17.5207 11.6793 18.7999 13.2573 18.7999H27.543C29.121 18.7999 30.4001 17.5207 30.4001 15.9428V11.6571C30.4001 10.0791 29.121 8.79993 27.543 8.79993ZM11.8288 11.6571C11.8288 10.8681 12.4684 10.2285 13.2573 10.2285H27.5431C28.332 10.2285 28.9716 10.8681 28.9716 11.6571V15.9428C28.9716 16.7318 28.332 17.3714 27.5431 17.3714H13.2573C12.4684 17.3714 11.8288 16.7318 11.8288 15.9428V11.6571ZM13.2573 21.6571H27.543C29.121 21.6571 30.4001 22.9362 30.4001 24.5142V28.7999C30.4001 30.3779 29.121 31.6571 27.543 31.6571H13.2573C11.6793 31.6571 10.4001 30.3779 10.4001 28.7999V24.5142C10.4001 22.9362 11.6793 21.6571 13.2573 21.6571ZM11.8288 24.5141C11.8288 23.7252 12.4684 23.0856 13.2573 23.0856H27.5431C28.332 23.0856 28.9716 23.7252 28.9716 24.5141V28.7999C28.9716 29.5888 28.332 30.2284 27.5431 30.2284H13.2573C12.4684 30.2284 11.8288 29.5888 11.8288 28.7999V24.5141Z" fill="black"/>
+                    </svg>
+                </button>
+                <button class="listToogleBtn">
+                    <svg class="listToogleIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="10" fill="#303030"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4001 11.8287C10.4001 11.4342 10.7199 11.1144 11.1144 11.1144H29.6859C30.0804 11.1144 30.4001 11.4342 30.4001 11.8287C30.4001 12.2232 30.0804 12.543 29.6859 12.543H11.1144C10.7199 12.543 10.4001 12.2232 10.4001 11.8287ZM27.543 15.4001H13.2573C11.6793 15.4001 10.4001 16.6793 10.4001 18.2572V22.5429C10.4001 24.1209 11.6793 25.4001 13.2573 25.4001H27.543C29.121 25.4001 30.4001 24.1209 30.4001 22.5429V18.2572C30.4001 16.6793 29.121 15.4001 27.543 15.4001ZM11.8289 18.2573C11.8289 17.4684 12.4685 16.8288 13.2574 16.8288H27.5431C28.3321 16.8288 28.9717 17.4684 28.9717 18.2573V22.5431C28.9717 23.332 28.3321 23.9716 27.5431 23.9716H13.2574C12.4685 23.9716 11.8289 23.332 11.8289 22.5431V18.2573ZM11.1144 28.2573C10.7199 28.2573 10.4001 28.5771 10.4001 28.9716C10.4001 29.3661 10.7199 29.6859 11.1144 29.6859H29.6859C30.0804 29.6859 30.4001 29.3661 30.4001 28.9716C30.4001 28.5771 30.0804 28.2573 29.6859 28.2573H11.1144Z" fill="black"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <section class="contentWrapper">
+            <ul id="listContent">
+                <li >
+                    <div class="gameCard">
+                        <img src="biomutantCard.jpg" alt="game cover">
+                        <div class="gameCardDesc">
+                            <div class="gameCardData">
+                                <h3>Biomutant</h3>
+                                <div class="gameCardAtt">
+                                    <h6>Release date</h6>
+                                    <h6>May 31 2021</h6>
+                                    <h6>Genres</h6>
+                                    <h6>Action, RPG</h6>
+                                </div>
+                            </div>
+                            <div class="gameCardIcons">
+                                <img src="/GameFinderAltimetrik/icons/platform.svg" alt="platformsIcons">
+                                #1
+                                <button class="giftBtn">
+                                    <img  id="plusIcon"src="/GameFinderAltimetrik/icons/plus.svg" alt="plus">
+                                    <img id="giftIcon" src="/GameFinderAltimetrik/icons/gift-fill.svg" alt="gift">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="gameCard">
+                        <img src="biomutantCard.jpg" alt="game cover">
+                        <div class="gameCardDesc">
+                            <div class="gameCardData">
+                                <h3>Biomutant</h3>
+                                <div class="gameCardAtt">
+                                    <h6>Release date</h6>
+                                    <h6>May 31 2021</h6>
+                                    <h6>Genres</h6>
+                                    <h6>Action, RPG</h6>
+                                </div>
+                            </div>
+                            <div class="gameCardIcons">
+                                <img src="/GameFinderAltimetrik/icons/platform.svg" alt="platformsIcons">
+                                #1
+                                <button class="giftBtn">
+                                    <img  id="plusIcon"src="/GameFinderAltimetrik/icons/plus.svg" alt="plus">
+                                    <img id="giftIcon" src="/GameFinderAltimetrik/icons/gift-fill.svg" alt="gift">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="gameCard">
+                        <img src="biomutantCard.jpg" alt="game cover">
+                        <div class="gameCardDesc">
+                            <div class="gameCardData">
+                                <h3>Biomutant</h3>
+                                <div class="gameCardAtt">
+                                    <h6>Release date</h6>
+                                    <h6>May 31 2021</h6>
+                                    <h6>Genres</h6>
+                                    <h6>Action, RPG</h6>
+                                </div>
+                            </div>
+                            <div class="gameCardIcons">
+                                <img src="/GameFinderAltimetrik/icons/platform.svg" alt="platformsIcons">
+                                #1
+                                <button class="giftBtn">
+                                    <img  id="plusIcon"src="/GameFinderAltimetrik/icons/plus.svg" alt="plus">
+                                    <img id="giftIcon" src="/GameFinderAltimetrik/icons/gift-fill.svg" alt="gift">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="gameCard">
+                        <img src="biomutantCard.jpg" alt="game cover">
+                        <div class="gameCardDesc">
+                            <div class="gameCardData">
+                                <h3>Biomutant</h3>
+                                <div class="gameCardAtt">
+                                    <h6>Release date</h6>
+                                    <h6>May 31 2021</h6>
+                                    <h6>Genres</h6>
+                                    <h6>Action, RPG</h6>
+                                </div>
+                            </div>
+                            <div class="gameCardIcons">
+                                <img src="/GameFinderAltimetrik/icons/platform.svg" alt="platformsIcons">
+                                #1
+                                <button class="giftBtn">
+                                    <img  id="plusIcon"src="/GameFinderAltimetrik/icons/plus.svg" alt="plus">
+                                    <img id="giftIcon" src="/GameFinderAltimetrik/icons/gift-fill.svg" alt="gift">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="gameCard">
+                        <img src="biomutantCard.jpg" alt="game cover">
+                        <div class="gameCardDesc">
+                            <div class="gameCardData">
+                                <h3>Biomutant</h3>
+                                <div class="gameCardAtt">
+                                    <h6>Release date</h6>
+                                    <h6>May 31 2021</h6>
+                                    <h6>Genres</h6>
+                                    <h6>Action, RPG</h6>
+                                </div>
+                            </div>
+                            <div class="gameCardIcons">
+                                <img src="/GameFinderAltimetrik/icons/platform.svg" alt="platformsIcons">
+                                #1
+                                <button class="giftBtn">
+                                    <img  id="plusIcon"src="/GameFinderAltimetrik/icons/plus.svg" alt="plus">
+                                    <img id="giftIcon" src="/GameFinderAltimetrik/icons/gift-fill.svg" alt="gift">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="gameCard">
+                        <img src="biomutantCard.jpg" alt="game cover">
+                        <div class="gameCardDesc">
+                            <div class="gameCardData">
+                                <h3>Biomutant</h3>
+                                <div class="gameCardAtt">
+                                    <h6>Release date</h6>
+                                    <h6>May 31 2021</h6>
+                                    <h6>Genres</h6>
+                                    <h6>Action, RPG</h6>
+                                </div>
+                            </div>
+                            <div class="gameCardIcons">
+                                <img src="/GameFinderAltimetrik/icons/platform.svg" alt="platformsIcons">
+                                #1
+                                <button class="giftBtn">
+                                    <img  id="plusIcon"src="/GameFinderAltimetrik/icons/plus.svg" alt="plus">
+                                    <img id="giftIcon" src="/GameFinderAltimetrik/icons/gift-fill.svg" alt="gift">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </section>    
+    </main>
+    
+</body>
+
+</html>

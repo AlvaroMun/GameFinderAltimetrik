@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
 
 
 body{
@@ -12,12 +12,13 @@ body{
 
 /*----------Customize the finder title----------*/
 span{
-    font-weight: 1000;
+    font-weight: 800;
 }
 
 /*----------set the title----------*/
 .loginForm h1{
     font-size: 45px;
+    font-weight: 400;
 }
 
 /*----------customize the anchors like remeber me and forgot pass----------*/
@@ -50,19 +51,14 @@ h4:before,h4:after {
 
 /*----------set the loginBox----------*/
 .loginPageContaniner{
-    display: table;
+    display: grid;
+    align-content: center;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
 }
-
-.verticalAlign{
-    display: table-cell;
-    vertical-align: middle;
-}
-
 
 .loginBox{
     border-radius: 10px;
@@ -303,6 +299,10 @@ input:focus + .checkmark{
     align-items: center;
 }
 
+#anchorDiv a:hover{
+    color: #7CD235; 
+}
+
 
 
 
@@ -412,6 +412,10 @@ input:focus + .checkmark{
 /*----------Responsiveness----------*/
 
 @media only screen and (max-width: 1130px) {
+
+    .loginPageContaniner{
+        align-content: initial;
+    }
     .loginBox{
         width: 100%;
         height: 100%;
