@@ -511,7 +511,7 @@ section ul {
 .modalWrapper {
   display: grid;
   grid-template-columns: repeat(2, min-content);
-  grid-template-rows: repeat(2, min-content);
+  grid-template-rows: repeat(3, min-content);
   align-items: center;
   margin: 34px 91px 65px 79px;
 }
@@ -587,6 +587,7 @@ section ul {
 
 .modalCommentsActions {
   margin-bottom: 32px;
+  grid-row: 2/3;
 }
 
 .modalGridData ul {
@@ -642,13 +643,13 @@ section ul {
 }
 
 .commentsAndData {
-  grid-row: 2/3;
+  grid-row: 3/4;
   margin-right: 52px;
 }
 
 .modalImages {
   grid-column: 2/3;
-  grid-row: 1/3;
+  grid-row: 1/4;
 }
 
 .modalImages ul {
@@ -761,7 +762,7 @@ section ul {
 
   .commentsAndData {
     margin-right: 10px;
-    grid-row: 2/3;
+    grid-row: 3/4;
   }
 
   .modalGridData li:nth-child(even) {
@@ -769,8 +770,9 @@ section ul {
   }
 
   .modalImages {
-    grid-row: 2/3;
+    grid-row: 2/4;
     margin-right: 30px;
+    margin-left: 10px;
   }
 }
 
@@ -888,7 +890,7 @@ section ul {
   }
 
   .commentsAndData {
-    grid-row: 2/3;
+    grid-row: 4/5;
     grid-column: 1;
   }
 
