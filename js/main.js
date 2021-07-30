@@ -7,8 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let sideMenuToggle = document.querySelector(".sideMenuToggle");
   let pageTitle = document.querySelector("#pageTitle");
   let header = document.querySelector(".header");
+  let listToggleBtn = document.querySelector("#listToggleBtn");
 
   let toggleListClicked = false;
+  let listOfCardsRendered = false;
 
   if (window.innerWidth <= 690) {
     let searchBtnMovil = document.querySelector("searchBtnMovil");
@@ -123,21 +125,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*--------initial list game ---------*/
   getGames()
-    .then((json) => ngFor(json.results))
+    .then((json) => {
+      console.log("JSON");
+      ngFor(json.results);
+    })
     .catch((err) => console.log(err));
 
-  let listItems = "";
+  let ul = "";
   /*------- function for listing games------ */
   function ngFor(listOfGames) {
     let i = 1;
-
+    let listItems = "";
     let li = "";
     let gameDescription = null;
 
     /*forEachGame-------------------------------------- */
-    listOfGames.forEach((game) => {
+    listOfGames.forEach(async (game) => {
       let genRes = game.genres;
       let genResString = "";
+      console.log("forEach listOfGames");
 
       /*---get list genres------- */
       genRes.forEach((gen) => {
@@ -146,134 +152,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
       /*get desc for each game */
 
+      let description = await getDescription(game.id);
+      /*console.log("description", description);*/
+      description = description.replace("<p>", "");
+      description = description.replace("</p>", "");
+      /**console.log("description after", description); */
+
       li = `
-      <li>
-            <button data-game=${game.id}  class="btnCard">
-                <div class="gameCard">
-                    <img
-                        src="${game.background_image}"
-                        class="gameCardCover"
-                        alt="game cover"
-                    />
-                    <div class="gameCardDesc">
-                        <div class="gameCardData">
-                            <h3>${game.name}</h3>
-                            <div class="gameCardAtt">
-                                <h6>Release date</h6>
-                                <h6>${game.released}</h6>
-                                <h6 class="marg-l">Genres</h6>
-                                <h6 class="pad-l">${genResString}</h6>
-                            </div>
-                        </div>
-                        <div class="gameCardIcons">
-                            <img
-                                src="/GameFinderAltimetrik/icons/platform.svg"
-                                alt="platformsIcons"
-                            />
-                            #${i}
-                            <a class="giftBtn">
-                                <img
-                                id="plusIcon"
-                                src="/GameFinderAltimetrik/icons/plus.svg"
-                                alt="plus"
-                                />
-                                <img
-                                id="giftIcon"
-                                src="/GameFinderAltimetrik/icons/gift-fill.svg"
-                                alt="gift"
-                                />
-                            </a>
-                        </div>
-                    </div>
-                    <p class="cardDescriptionP">test</p>
-                </div>
-            </button>
-      </li>`;
-
+        <li>
+              <button data-game=${game.id}  class="btnCard">
+                  <div class="gameCard">
+                      <img
+                          src="${game.background_image}"
+                          class="gameCardCover"
+                          alt="game cover"
+                      />
+                      <div class="gameCardDesc">
+                          <div class="gameCardData">
+                              <h3>${game.name}</h3>
+                              <div class="gameCardAtt">
+                                  <h6>Release date</h6>
+                                  <h6>${game.released}</h6>
+                                  <h6 class="marg-l">Genres</h6>
+                                  <h6 class="pad-l">${genResString}</h6>
+                              </div>
+                          </div>
+                          <div class="gameCardIcons">
+                              <img
+                                  src="/GameFinderAltimetrik/icons/platform.svg"
+                                  alt="platformsIcons"
+                              />
+                              #${i}
+                              <a class="giftBtn">
+                                  <img
+                                  id="plusIcon"
+                                  src="/GameFinderAltimetrik/icons/plus.svg"
+                                  alt="plus"
+                                  />
+                                  <img
+                                  id="giftIcon"
+                                  src="/GameFinderAltimetrik/icons/gift-fill.svg"
+                                  alt="gift"
+                                  />
+                              </a>
+                          </div>
+                      </div>
+                      <p class="cardDescriptionP">${description}</p>
+                  </div>
+              </button>
+        </li>`;
       listItems += li;
-
       i++;
-    });
+      ul = `<ul id="listContent">${listItems}</ul>`;
 
-    /*end of FOREACH */
+      mainContent.innerHTML = ul;
 
-    let ul = '<ul id="listContent" class="gridContent">' + listItems + "</ul>";
-    mainContent.innerHTML = ul;
-
-    /*-------Event listener that depend of the list to be render first ------*/
-
-    if (ul) {
       let btnCards = document.querySelectorAll(".btnCard");
-
-      /*------Cards Clicked--------- */
       btnCards.forEach((card) => {
         card.addEventListener("click", (e) => {
           console.log("dataset Att id", e.currentTarget.dataset.game);
         });
       });
+      /*
+          return ul;
+        })
+        .then((ul) => {
+          /*test */
+      /*
+          if (ul) {
+            let btnCards = document.querySelectorAll(".btnCard");
 
-      /*let listContent = document
-          .querySelector("#listToggleBtn")
-          .addEventListener("click", toggleList);*/
+            
+            btnCards.forEach((card) => {
+              card.addEventListener("click", (e) => {
+                console.log("dataset Att id", e.currentTarget.dataset.game);
+              });
+            });
 
-      /*Toggle between list of cards or grid of cards */
+            listOfCardsRendered = true;
 
-      let gameCardDesc = document.querySelectorAll(".gameCardDesc");
-      let cardParagraph = document.querySelectorAll(".cardDescriptionP");
-      let gameCardAtt = document.querySelectorAll(".gameCardAtt");
-      let genResListed = document.querySelectorAll(".marg-l");
-      let genResValListed = document.querySelectorAll(".pad-l");
-
-      let listToggleBtn = document
-        .querySelector("#listToggleBtn")
-        .addEventListener("click", () => {
-          if (toggleListClicked) {
-            toggleListClicked = false;
-
-            listContent.classList.remove("cardListSelected");
-            gameCardDesc.forEach((desc) => {
-              desc.classList.remove("gameCardDescListSelected");
-            });
-            cardParagraph.forEach((descP) => {
-              descP.classList.remove("paragraphListSelected");
-            });
-            gameCardAtt.forEach((cardAtt) => {
-              cardAtt.classList.remove("gameCardAttListSelected");
-            });
-            genResListed.forEach((genRes) => {
-              genRes.classList.remove("marg-l-40");
-            });
-            genResValListed.forEach((genResVal) => {
-              genResVal.classList.remove("pad-l-40");
-            });
-          } else {
-            toggleListClicked = true;
-
-            listContent.classList.add("cardListSelected");
-            gameCardDesc.forEach((desc) => {
-              desc.classList.add("gameCardDescListSelected");
-            });
-            cardParagraph.forEach((descP) => {
-              descP.classList.add("paragraphListSelected");
-            });
-            gameCardAtt.forEach((cardAtt) => {
-              cardAtt.classList.add("gameCardAttListSelected");
-            });
-            genResListed.forEach((genRes) => {
-              genRes.classList.add("marg-l-40");
-            });
-            genResValListed.forEach((genResVal) => {
-              genResVal.classList.add("pad-l-40");
-            });
+            /*let listContent = document
+                .querySelector("#listToggleBtn")
+                .addEventListener("click", toggleList);
           }
+          
         });
-    }
+
+      console.log(i);
+    });*/
+      /*-----------------end of FOREACH */
+
+      /*-------Event listener that depend of the list to be render first ------*/
+
+      /*END OF NGFOR----------------------- */
+      /*li.onclick = test();*/
+    });
+
+    console.log("test", listItems);
   }
-
-  /*END OF NGFOR----------------------- */
-  /*li.onclick = test();*/
-
-  function toggleList() {}
 
   function logOut() {
     window.location.replace("http://localhost:5500/GameFinderAltimetrik/");

@@ -323,7 +323,7 @@ section ul {
   justify-content: center;
 }
 
-.gridContent {
+#listContent {
   display: grid;
   /*grid-template-columns: repeat(3, min-content);*/
   grid-template-columns: repeat(3, minmax(333px, 500px));
