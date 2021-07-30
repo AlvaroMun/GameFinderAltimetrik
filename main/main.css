@@ -323,7 +323,7 @@ section ul {
   justify-content: center;
 }
 
-#listContent {
+.gridContent {
   display: grid;
   /*grid-template-columns: repeat(3, min-content);*/
   grid-template-columns: repeat(3, minmax(333px, 500px));
@@ -385,6 +385,7 @@ section ul {
 }
 
 .gameCardDesc {
+  padding-top: 10px;
   position: absolute;
   bottom: 0;
   background: #303030;
@@ -424,7 +425,7 @@ section ul {
   height: 31px;
   overflow: hidden;
   /*hasta aca va para que no rompa*/
-  margin-top: 7px;
+  margin-top: 15px;
   font-style: normal;
   font-weight: 800;
   font-size: 23px;
@@ -452,8 +453,8 @@ section ul {
 }
 
 .gameCardIcons {
-  margin-top: 19px;
   margin-left: 20px;
+  margin-top: 15px;
   height: 85px;
   /*float: right; commented to make width variable*/
   display: flex;
@@ -493,6 +494,40 @@ section ul {
 #giftIcon {
   width: 16px;
   height: 15px;
+}
+
+.cardDescription {
+  display: none;
+}
+
+.cardListSelected {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(333px, 696px)) !important;
+  grid-auto-rows: minmax(380px, 538px) !important;
+}
+
+.gameCardDescListSelected {
+  height: 220px;
+}
+
+.paragraphListSelected {
+  font-size: 14px;
+  line-height: 19px;
+  position: absolute;
+  bottom: 0;
+  padding: 0 20px !important;
+}
+
+.gameCardAttListSelected {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.marg-l-40 {
+  margin-left: 40px;
+}
+
+.pad-l-40 {
+  padding-left: 40px;
 }
 
 /*----------------Modal-----------------------------*/
@@ -697,7 +732,7 @@ section ul {
     transition: 0.5s;
   }
 
-  #listContent {
+  .gridContent {
     /*grid-template-columns: repeat(2, min-content);*/
     grid-template-columns: repeat(2, minmax(333px, 500px));
   }
@@ -777,7 +812,7 @@ section ul {
 }
 
 @media only screen and (max-width: 767px) {
-  #listContent {
+  .gridContent {
     /*grid-template-columns: repeat(1, min-content);*/
     grid-template-columns: repeat(1, minmax(333px, 500px));
   }
@@ -840,6 +875,7 @@ section ul {
 
   .gameCardData {
     margin-top: 10px;
+
     height: 90px;
     width: 280px;
   }
