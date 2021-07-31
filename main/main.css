@@ -516,6 +516,10 @@ section ul {
   position: absolute;
   bottom: 0;
   padding: 0 20px !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 95px;
+  margin-bottom: 10px;
 }
 
 .gameCardAttListSelected {
@@ -534,7 +538,7 @@ section ul {
 
 .modalWindow {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -549,6 +553,13 @@ section ul {
   grid-template-rows: repeat(3, min-content);
   align-items: center;
   margin: 34px 91px 65px 79px;
+}
+
+#closeModalBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
 }
 
 .modalData {
@@ -574,7 +585,7 @@ section ul {
   margin-top: 44px;
 }
 
-.modalData p {
+.modalParagraph {
   font-size: 14px;
   line-height: 19px;
   margin: 32px 0;
@@ -621,7 +632,6 @@ section ul {
 }
 
 .modalCommentsActions {
-  margin-bottom: 32px;
   grid-row: 2/3;
 }
 
@@ -641,6 +651,20 @@ section ul {
   font-size: 12px;
   line-height: 16px;
   color: #939393;
+}
+
+.modalParagraph {
+  height: 96px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.modalRanking {
+  margin-top: 15px;
+}
+
+.modalData h2 {
+  margin-bottom: 0;
 }
 
 .modalGridData li h6:last-child,
@@ -680,6 +704,7 @@ section ul {
 .commentsAndData {
   grid-row: 3/4;
   margin-right: 52px;
+  align-self: start;
 }
 
 .modalImages {
@@ -708,6 +733,12 @@ section ul {
   grid-column: span 2;
 }
 
+.modalImages img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 /*----------------Responsiveness--------------------*/
 
 @media screen and (min-width: 768px) {
@@ -732,7 +763,7 @@ section ul {
     transition: 0.5s;
   }
 
-  .gridContent {
+  #listContent {
     /*grid-template-columns: repeat(2, min-content);*/
     grid-template-columns: repeat(2, minmax(333px, 500px));
   }
@@ -812,9 +843,13 @@ section ul {
 }
 
 @media only screen and (max-width: 767px) {
-  .gridContent {
+  #listContent {
     /*grid-template-columns: repeat(1, min-content);*/
     grid-template-columns: repeat(1, minmax(333px, 500px));
+  }
+
+  .modalWindow {
+    margin-top: 104px;
   }
 
   .contentWrapper {
