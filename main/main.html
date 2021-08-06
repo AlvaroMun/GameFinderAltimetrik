@@ -31,6 +31,7 @@
     <title>GameFinder-Main</title>
   </head>
   <body>
+    <div id="backgroundOutsideModal"></div>
     <!--start of header-->
     <header class="header">
       <svg
@@ -68,11 +69,7 @@
           />
         </svg>
 
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Type game name or console"
-        />
+        <input id="searchInput" type="text" placeholder="Type game name" />
       </div>
       <div class="profileMenu">
         <button id="logOutBtn" class="logOutBtn">
@@ -116,7 +113,7 @@
     </header>
     <!--end of header-->
     <!--Sidebar-->
-    <aside class="sideNav">
+    <nav class="sideNav">
       <ul class="sideNavMenu">
         <ul id="pageTitleSideMenu">
           <li>
@@ -221,7 +218,7 @@
           </li>
         </ul>
       </ul>
-    </aside>
+    </nav>
     <!--end of sidebar-->
     <!--Start of main content(grid)-->
     <header class="mainHeader">
