@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   let mainContent = document.querySelector(".contentWrapper");
   let logOutBtn = document.querySelector("#logOutBtn");
   let searchBtn = document.querySelector("#searchBtn");
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let searchBtnMovil = document.querySelector("searchBtnMovil");
   }
 
+
   /*let li = "";
   let listItems = "";*/
   let loader = `
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 `;
 
   /*--------events listeners---------- */
+
 
   logOutBtn.addEventListener("click", logOut);
 
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
   searchBtnMovil.addEventListener("click", () => {
     console.log(header.style.height);
     if (header.style.height === "170px") {
@@ -69,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
   sideMenuToggle.addEventListener("click", () => {
     if (sideNavMenu.classList.contains("sideNav")) {
       sideNavMenu.style.left = "0px";
@@ -77,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.addEventListener("click", (e) => {
+
     console.log(e.target);
     if (e.target.id !== "sideMenuToggle") {
       sideNavMenu.style.left = "-330px";
@@ -147,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*--------end of events listeners---------- */
 
+
   /*------Async functions------- */
   async function getGames() {
     mainContent.innerHTML = loader;
@@ -175,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return response;
   }
+
 
   async function getDescription(id) {
     const response = await fetch(
@@ -224,11 +232,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((err) => console.log(err));
 
   let ul = "";
+
   /*------- function for listing games------ */
   function ngFor(listOfGames) {
     let i = 1;
     let listItems = "";
     let li = "";
+
     let gameDescription = null;
 
     /*forEachGame-------------------------------------- */
@@ -579,6 +589,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeModalAction() {
     modalWindow.style.display = "none";
     backgroundOutisdeModal.classList.remove("showBackgroundOutsideModal");
+
+
   }
 
   function logOut() {
