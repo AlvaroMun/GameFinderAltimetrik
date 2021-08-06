@@ -1069,6 +1069,8 @@ section ul {
 
   .modalWrapper {
     padding: 0;
+    grid-template-columns: 100%;
+    justify-items: center;
   }
   .modalActionButtons button {
     width: 108px !important;
@@ -1080,6 +1082,10 @@ section ul {
 
   .modalImages {
     margin: 0;
+  }
+
+  .commentsAndData {
+    justify-self: start;
   }
 }
 

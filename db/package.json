@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start_auth":"npx json-server-auth db.json"
+    "start-auth":"npx json-server-auth db.json"
   },
   "author": "",
   "license": "ISC",
