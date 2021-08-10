@@ -75,7 +75,9 @@ body{
 hr {
   border: none;
   height: 1px;
-  margin: 18px 40px;
+  margin: 0 40px;
+  margin-top: 15px;
+  z-index: 10;
 }
 
 .logOutBtnSideMenuContainer {
@@ -145,22 +147,29 @@ hr {
 }
 
 .searchContainer {
+  /*position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;*/
+  position: relative;
   width: 362px;
   height: 40px;
-  margin-top: 34px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  /*display: flex;
   align-items: center;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-end;*/
 }
 
 .searchContainer svg {
   cursor: pointer;
   fill: #a6a6a6;
-  margin-right: -30px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
   z-index: 5;
 }
 
@@ -171,6 +180,39 @@ hr {
   border-radius: 20px;
   width: 100%;
   height: 100%;
+  border: none;
+}
+
+.showOverflow {
+  overflow: visible;
+}
+
+#searchSuggestions {
+  background: #f1f1f1;
+  color: black;
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  font-size: 16px;
+  line-height: 22px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+#searchSuggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#searchSuggestions li:hover {
+  background: grey;
+}
+
+.suggestionsDisplayed {
+  border-radius: 20px 20px 0 0 !important;
+}
+
+.lastSearches {
+  display: initial !important;
 }
 
 h1 {
@@ -365,12 +407,20 @@ section ul {
 
 .loader {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .loading {
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: 0;
   width: 80px;
   height: 80px;
 }
@@ -448,6 +498,7 @@ section ul {
 
 .gameCardData h3 {
   text-align: start;
+  width: 180px;
   /* width: 200px; Agregue esto para que no me rompa el resto de la data!!!!!!*/
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -491,6 +542,31 @@ section ul {
   flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: space-evenly;
+}
+
+.icons {
+  width: 150px;
+}
+
+.icons svg {
+  margin: 0 2px;
+  float: right;
+  height: 13px;
+  width: 17px;
+}
+
+.modalPlatformsIcons svg {
+  margin: 0 3px;
+  height: 20px;
+  width: 20px;
+}
+
+.gameCardIcons h5 {
+  margin-bottom: 0;
+}
+
+.hide {
+  display: none;
 }
 
 .gameCardIcons img {
@@ -568,9 +644,11 @@ section ul {
 .modalWindow {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   border-radius: 10px;
   background: #303030;
   z-index: 1000;
@@ -794,6 +872,9 @@ section ul {
   background: rgba(0, 0, 0, 0.784937);
 }
 
+#sideMenuMobile {
+  display: none;
+}
 /*----------------Responsiveness--------------------*/
 
 @media screen and (min-width: 768px) {
@@ -808,7 +889,7 @@ section ul {
 
 @media only screen and (max-width: 1290px) {
   .sideNav {
-    left: -330px;
+    left: -500px;
     background: #151515;
     position: fixed;
     width: 303px;
@@ -872,8 +953,7 @@ section ul {
     height: calc(100% - 120px);
     width: 100%;
     border-radius: 0;
-    margin-top: 120px;
-    top: 44%;
+    top: 120px;
   }
 
   .modalContent {
@@ -914,7 +994,7 @@ section ul {
   }
 
   .searchContainer {
-    margin-top: 110px;
+    margin-top: 95px;
   }
 
   hr {
@@ -995,8 +1075,7 @@ section ul {
   /*------Modal--------*/
 
   .modalWindow {
-    margin-top: 104px;
-    top: 45%;
+    top: 104px;
     display: flex;
     display: none;
     justify-content: center;
@@ -1089,12 +1168,28 @@ section ul {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  #sideMenuMobile {
+    display: initial;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 23px;
+    margin-top: 56px;
+  }
+
+  .sideNav {
+    width: 100%;
+  }
+
+  .searchContainer {
+    width: 246px;
+  }
+}
+
 @media only screen and (max-width: 340px) {
   .gameCard {
     border-radius: 0;
-  }
-  .searchContainer {
-    width: 246px;
   }
 
   #searchBtn {
