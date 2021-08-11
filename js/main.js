@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let listToggleBtn = document.querySelector("#listToggleBtn");
   let gridToggleBtn = document.querySelector("#gridToggleBtn");
   let suggestionList = document.querySelector("#suggestionList");
+  let lastCardNumber = undefined;
+  let searchFlag = false;
 
   let lastSearchesList = JSON.parse(localStorage.getItem("lastSearches")) || [];
 
@@ -84,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-  /*
+
   mainContent.addEventListener("scroll", (e) => {
     if (
       mainContent.offsetHeight + mainContent.scrollTop >=
@@ -92,16 +94,19 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       console.log("llegue al fin!");
       if (nextGamesPage.length > 0) {
-        // getNextPageGames(nextGamesPage);
+        getGames(nextGamesPage);
+        //getNextPageGames(nextGamesPage);
       }
     }
   });
-*/
+
   searchInput.addEventListener("focus", () => {
     header.classList.add("showOverflow");
   });
 
-  /*searchInput.addEventListener("blur", () => {
+  /*
+  REVISAR
+  searchInputContainer.addEventListener("blur", () => {
     header.classList.remove("showOverflow");
     hideSuggestions();
   });
@@ -207,24 +212,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   lastSearches.addEventListener("click", displaySearchList);
 
-  homeAnchor.addEventListener("click", getGames);
+  homeAnchor.addEventListener("click", () => {
+    getGames();
+    nextGamesPage = "";
+  });
 
   /*-----------------------------------------------------------------------end of events listeners---------- */
 
   /*-----------------------------------------------------------------------Async functions------- */
-  async function getGames() {
-    listContent.innerHTML = loader;
+  async function getGames(
+    link = "https://api.rawg.io/api/games?key=c7b6f273e3984c5e83fb3f76702937f2&page_size=15"
+  ) {
+    console.log("ESTA ES LA URL QUE ENTRO", link);
+    //listContent.innerHTML = loader;
     if (listContent.classList.contains("lastSearches")) {
       listContent.classList.remove("lastSearches");
     }
 
     try {
       console.log("getGames");
-      const response = await fetch(
-        "https://api.rawg.io/api/games?key=c7b6f273e3984c5e83fb3f76702937f2&page_size=39"
-      );
+      const response = await fetch(link);
 
       const json = await response.json();
+
+      if (nextGamesPage.length === 0) {
+        //listContent.innerHTML = "";
+        listContent.innerHTML = loader;
+      }
 
       /*-----Ask for more game pages?-------*/
       if (json.next) {
@@ -237,18 +251,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  async function getNextPageGames(link) {
-    try {
-      console.log("Inside getNextPageGames");
-      const response = await fetch(link);
-      const json = await response.json();
-      ngFor(json.results);
-    } catch (error) {
-      throw Error(error);
-    }
-  }
-
   async function search(searchQuery) {
+    lastCardNumber = undefined;
+    nextGamesPage = "";
+
     if (!lastSearchesList.includes(searchQuery)) {
       lastSearchesList.push(searchQuery);
       localStorage.setItem("lastSearches", JSON.stringify(lastSearchesList));
@@ -258,14 +264,25 @@ document.addEventListener("DOMContentLoaded", function () {
       getGames();
     } else {
       listContent.innerHTML = loader;
-      firstTimeFetching = true;
+
       try {
         response = await fetch(
-          `https://api.rawg.io/api/games?key=c7b6f273e3984c5e83fb3f76702937f2&search=${searchQuery}&page_size=39`
+          `https://api.rawg.io/api/games?key=c7b6f273e3984c5e83fb3f76702937f2&search=${searchQuery}&page_size=15`
         );
 
-        let data = await response.json();
-        ngFor(data.results);
+        let json = await response.json();
+
+        if (nextGamesPage.length === 0) {
+          //listContent.innerHTML = "";
+          listContent.innerHTML = loader;
+        }
+
+        /*-----Ask for more game pages?-------*/
+        if (json.next) {
+          nextGamesPage = json.next;
+        }
+
+        ngFor(json.results);
       } catch (error) {
         throw Error(error);
       }
@@ -341,16 +358,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*------- function for listing games------ */
   async function ngFor(listOfGames) {
-    let i = 1;
+    let cardNumber = lastCardNumber || 1;
     let listItems = "";
     let li = "";
 
     let gameDescription = null;
-    listContent.innerHTML = "";
+
     /*forEachGame-------------------------------------- */
 
     //for (const game of listOfGames) {
-    listOfGames.forEach(async (game) => {
+    listOfGames.map(async (game) => {
       let genRes = game.genres || [];
       let genResString = "not defined";
       let background =
@@ -358,7 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let platforms = "";
 
       /*---get list genres------- */
-      if (genRes) {
+      if (genRes.length) {
         genResString = genRes[0].name;
       }
 
@@ -371,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
       /*get platforms for each game */
 
       if (game.parent_platforms.length > 0) {
-        game.parent_platforms.forEach((platform) => {
+        game.parent_platforms.map((platform) => {
           switch (platform.platform.name) {
             case "PC":
               platforms += `${pc}`;
@@ -420,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function () {
                           <div class="gameCardIcons">
                               <div class="icons">${platforms}</div>
                               
-                              <h5 id="h5GridNumber">#${i}</h5>
+                              <h5 id="h5GridNumber">#${cardNumber}</h5>
                               <a class="giftBtn">
                                   <img
                                   id="plusIcon"
@@ -439,9 +456,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   </div>
               </button>
         `;
-      listItems += li;
-      i++;
-
+      //listItems += li;
+      cardNumber++;
+      lastCardNumber = cardNumber;
       let liNode = document.createElement("LI");
       liNode.innerHTML = li;
 
@@ -486,105 +503,104 @@ document.addEventListener("DOMContentLoaded", function () {
         modalWindow.style.display = "initial";
         modalWindow.innerHTML = loader;
 
-        let game = await getDetails(idGame).then(async (game) => {
-          let genRes = game.genres;
-          let genResString = [];
-          let gameDevelopers = [];
-          let gamePublishers = [];
-          let ersbRating = "";
-          let description = game.description;
-          let listOfImages = "";
-          let background =
-            game.background_image ||
-            "../assets/img/image-not-found-pikachu.jpg";
-          let platforms = "";
+        let game = await getDetails(idGame);
+        let genRes = game.genres;
+        let genResString = [];
+        let gameDevelopers = [];
+        let gamePublishers = [];
+        let ersbRating = "";
+        let description = game.description;
+        let listOfImages = "";
+        let background =
+          game.background_image || "../assets/img/image-not-found-pikachu.jpg";
+        let platforms = "";
 
-          description = description.replaceAll("<p>", "");
-          description = description.replaceAll("</p>", "");
+        description = description.replaceAll("<p>", "");
+        description = description.replaceAll("</p>", "");
 
-          /*---get list genres------- */
+        /*---get list genres------- */
 
-          if (genRes.length) {
-            genRes.forEach((gen) => {
-              genResString.push(gen.name);
-            });
-            genResString = genResString.join(", ");
-          } else {
-            genResString = "genres not found";
-          }
+        if (genRes.length) {
+          genRes.map((gen) => {
+            genResString.push(gen.name);
+          });
+          genResString = genResString.join(", ");
+        } else {
+          genResString = "genres not found";
+        }
 
-          /*get game devoleprs */
+        /*get game devoleprs */
 
-          if (game.developers.length > 0) {
-            game.developers.forEach((developer) => {
-              gameDevelopers.push(developer.name);
-            });
-            gameDevelopers = gameDevelopers.join(", ");
-          } else {
-            gameDevelopers = "developer not found";
-          }
+        if (game.developers.length > 0) {
+          game.developers.map((developer) => {
+            gameDevelopers.push(developer.name);
+          });
+          gameDevelopers = gameDevelopers.join(", ");
+        } else {
+          gameDevelopers = "developer not found";
+        }
 
-          /*get game publishers */
+        /*get game publishers */
 
-          if (game.publishers.length > 0) {
-            game.publishers.forEach((publisher) => {
-              gamePublishers.push(publisher.name);
-            });
-            gamePublishers.join(", ");
-          } else {
-            gamePublishers = "game publisher not found";
-          }
+        if (game.publishers.length > 0) {
+          game.publishers.map((publisher) => {
+            gamePublishers.push(publisher.name);
+          });
+          gamePublishers.join(", ");
+        } else {
+          gamePublishers = "game publisher not found";
+        }
 
-          /*get ersb rating */
-          if (game.esrb_rating !== null) {
-            ersbRating = game.esrb_rating.name;
-          } else {
-            ersbRating = "not defined";
-          }
+        /*get ersb rating */
+        if (game.esrb_rating !== null) {
+          ersbRating = game.esrb_rating.name;
+        } else {
+          ersbRating = "not defined";
+        }
 
-          /*get platforms for each game */
+        /*get platforms for each game */
 
-          if (game.parent_platforms.length > 0) {
-            game.parent_platforms.forEach((platform) => {
-              switch (platform.platform.name) {
-                case "PC":
-                  platforms += `${pc}`;
-                  break;
-                case "PlayStation":
-                  platforms += `${playstation}`;
-                  break;
-                case "Xbox":
-                  platforms += `${xbox}`;
-                  break;
-                case "Nintendo":
-                  platforms += `${nintendoSwitch}`;
-                  break;
-                case "Linux":
-                  platforms += `${linux}`;
-                  break;
-                case "Apple Macintosh":
-                  platforms += `${mac}`;
-                  break;
-                case "Android":
-                  platforms += `${android}`;
-                  break;
-              }
-            });
-          }
-
-          /*getScreenshots */
-
-          let listOfSS = await getScreenShots(idGame);
-          let SS = listOfSS.results;
-          for (let index = 0; index < 5; index++) {
-            if (listOfSS.results.length) {
-              listOfImages += `<li><img src="${SS[index].image}" alt="Screenshot" /></li>`;
-            } else {
-              listOfImages += `<li><img src="../assets/img/image-not-found-pikachu.jpg" alt="Screenshot" /></li>`;
+        if (game.parent_platforms.length > 0) {
+          game.parent_platforms.map((platform) => {
+            switch (platform.platform.name) {
+              case "PC":
+                platforms += `${pc}`;
+                break;
+              case "PlayStation":
+                platforms += `${playstation}`;
+                break;
+              case "Xbox":
+                platforms += `${xbox}`;
+                break;
+              case "Nintendo":
+                platforms += `${nintendoSwitch}`;
+                break;
+              case "Linux":
+                platforms += `${linux}`;
+                break;
+              case "Apple Macintosh":
+                platforms += `${mac}`;
+                break;
+              case "Android":
+                platforms += `${android}`;
+                break;
             }
-          }
+          });
+        }
 
-          modalContent = `
+        /*getScreenshots */
+
+        let listOfSS = await getScreenShots(idGame);
+        let SS = listOfSS.results;
+        for (let index = 0; index < 5; index++) {
+          if (listOfSS.results.length) {
+            listOfImages += `<li><img src="${SS[index].image}" alt="Screenshot" /></li>`;
+          } else {
+            listOfImages += `<li><img src="../assets/img/image-not-found-pikachu.jpg" alt="Screenshot" /></li>`;
+          }
+        }
+
+        modalContent = `
       <div class="modalContent">
         <div class="modalBackground">
           <img src="${background}" alt="Screenshot" />
@@ -736,7 +752,6 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </div>
       `;
-        });
 
         modalWindow.innerHTML = modalContent;
 

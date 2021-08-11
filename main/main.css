@@ -398,6 +398,7 @@ section ul {
 
 #listContent {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(3, minmax(333px, 500px));
   gap: 21px;
   grid-auto-rows: minmax(321px, 380px);
