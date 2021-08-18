@@ -63,10 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let mac = `<svg id="mac" fill="white" viewBox="0 0 900 1000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304.998 304.998"><path d="M702 960c-54.2 52.6-114 44.4-171 19.6-60.6-25.3-116-26.9-180 0-79.7 34.4-122 24.4-170-19.6-271-279-231-704 77-720 74.7 4 127 41.3 171 44.4 65.4-13.3 128-51.4 198-46.4 84.1 6.8 147 40 189 99.7-173 104-132 332 26.9 396-31.8 83.5-72.6 166-141 227zM423 237C414.9 113 515.4 11 631 1c15.9 143-130 250-208 236z"/></svg>`;
 
-  /*let li = "";
-  let listItems = "";*/
   let loader = `
-  <div class="loader">
+  <div id="loader" class="loader">
     <div class="loading"></div>
   </div>
 `;
@@ -80,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(header.style.height);
 
       if (header.style.height === "170px") {
+        header.classList.remove("showOverflow");
         header.style.height = "104px";
       } else {
         header.style.height = "170px";
@@ -88,14 +87,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   mainContent.addEventListener("scroll", (e) => {
-    if (
-      mainContent.offsetHeight + mainContent.scrollTop >=
-      mainContent.scrollHeight
-    ) {
-      console.log("llegue al fin!");
-      if (nextGamesPage.length > 0) {
-        getGames(nextGamesPage);
-        //getNextPageGames(nextGamesPage);
+    if (!listContent.classList.contains("lastSearches")) {
+      if (
+        mainContent.offsetHeight + mainContent.scrollTop >=
+        mainContent.scrollHeight
+      ) {
+        console.log("llegue al fin!");
+        if (nextGamesPage.length > 0) {
+          getGames(nextGamesPage);
+        }
       }
     }
   });
@@ -104,19 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
     header.classList.add("showOverflow");
   });
 
-  /*
-  REVISAR
-  searchInputContainer.addEventListener("blur", () => {
-    header.classList.remove("showOverflow");
-    hideSuggestions();
-  });
-*/
   logOutBtn.addEventListener("click", logOut);
 
   searchBtn.addEventListener("click", () => {
     search(searchInput.value);
   });
 
+  /*searchInput.addEventListener(
+    "blur",
+    () => {
+      hideSuggestions();
+      header.classList.remove("showOverflow");
+    },
+    true
+  );
+*/
   searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       search(searchInput.value);
@@ -225,19 +227,21 @@ document.addEventListener("DOMContentLoaded", function () {
   ) {
     console.log("ESTA ES LA URL QUE ENTRO", link);
 
-    if (listContent.classList.contains("lastSearches")) {
-      listContent.classList.remove("lastSearches");
-    }
-
     try {
       console.log("getGames");
       const response = await fetch(link);
 
-      const json = await response.json();
-
       if (nextGamesPage.length === 0) {
+        listContent.innerHTML = "";
         listContent.innerHTML = loader;
+        lastCardNumber = undefined;
       }
+
+      if (listContent.classList.contains("lastSearches")) {
+        listContent.classList.remove("lastSearches");
+      }
+
+      const json = await response.json();
 
       /*-----Ask for more game pages?-------*/
       if (json.next) {
@@ -367,21 +371,21 @@ document.addEventListener("DOMContentLoaded", function () {
           id,
           name,
           released,
-          genRes,
+          genres,
           background_image,
           parent_platforms,
         }) => {
-          let genResString = "not defined";
+          let genResString = "";
           let platforms = "";
 
           /*---get list genres------- */
-          if (genRes) {
-            genResString = genRes[0].name;
+          if (genres) {
+            genResString = genres[0].name;
           }
 
           /*get desc for each game */
-
           let description = await getDescription(id);
+
           description = description.replaceAll("<p>", "");
           description = description.replaceAll("</p>", "");
 
@@ -435,7 +439,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h6>Release date</h6>
                             <h6>${released || "not defined"}</h6>
                             <h6 class="marg-l">Genres</h6>
-                            <h6 class="pad-l">${genResString}</h6>
+                            <h6 class="pad-l">${
+                              genResString || "not defined"
+                            }</h6>
                         </div>
                     </div>
                     <div class="gameCardIcons">
@@ -470,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       )
     );
-
+    removeLoader();
     /*--------------------Add click event listener to each card----------------*/
     document.querySelectorAll(".btnCard").forEach((card) => {
       card.addEventListener("click", (e) => {
@@ -553,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let {
       name,
       released,
-      genRes,
+      genres,
       description,
       background_image,
       developers,
@@ -580,8 +586,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*---get list genres------- */
 
-    if (genRes) {
-      genRes.map((gen) => {
+    if (genres) {
+      genres.map((gen) => {
         genResString.push(gen.name);
       });
       genResString = genResString.join(", ");
@@ -683,7 +689,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
           <h2>${name}</h2>
           <div class="rankingAndActionButtons">
-            <div class="modalRanking">top 1</div>
+            <div class="modalRanking">
+            <div>${released}</div>
+            <div><span>#1</span> TOP 2021</div>
+            <div><span>#342</span>  RPG</div>
+            
+            </div>
             <div class="modalActionButtons">
               <button>
                 <div>
@@ -825,5 +836,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function logOut() {
     window.location.replace("../login/index.html");
+  }
+
+  function removeLoader() {
+    document.querySelector("#loader").remove();
   }
 });

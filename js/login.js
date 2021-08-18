@@ -67,49 +67,112 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function inputUserBlur() {
-    usrFieldContainer.style.color = "#d1d1d1";
-    usrFieldContainer.style.borderColor = "#d1d1d1";
-    usrSvg.style.fill = "#d1d1d1";
-    usrIcon.style.borderColor = "#d1d1d1";
+    if (usrFieldContainer.classList.contains("inputError")) {
+      usrFieldContainer.classList.remove("inputError");
+    }
+    if (usrFieldContainer.classList.contains("inputFocus")) {
+      usrFieldContainer.classList.remove("inputFocus");
+    }
+
+    if (usrSvg.classList.contains("fillError")) {
+      usrSvg.classList.remove("fillError");
+    }
+
+    if (usrSvg.classList.contains("fillFocus")) {
+      usrSvg.classList.remove("fillFocus");
+    }
+
+    if (usrIcon.classList.contains("iconContainerError")) {
+      usrIcon.classList.remove("iconContainerError");
+    }
+
+    if (usrIcon.classList.contains("iconContainerFocus")) {
+      usrIcon.classList.remove("iconContainerFocus");
+    }
   }
 
   function inputUserFocus() {
-    usrFieldContainer.style.color = "white";
-    usrFieldContainer.style.borderColor = "white";
-    usrSvg.style.fill = "white";
-    usrIcon.style.borderColor = "white";
     errMail.innerHTML = "";
+
+    usrFieldContainer.classList.contains("inputError")
+      ? usrFieldContainer.classList.replace("inputError", "inputFocus")
+      : usrFieldContainer.classList.add("inputFocus");
+
+    usrSvg.classList.contains("fillError")
+      ? usrSvg.classList.replace("fillError", "fillFocus")
+      : usrSvg.classList.add("fillFocus");
+
+    usrIcon.classList.contains("iconContainerError")
+      ? usrIcon.classList.replace("iconContainerError", "iconContainerFocus")
+      : usrIcon.classList.add("iconContainerFocus");
   }
 
   function inputUserError() {
-    usrFieldContainer.style.color = "red";
-    usrFieldContainer.style.borderColor = "red";
-    usrSvg.style.fill = "red";
-    usrIcon.style.borderColor = "red";
+    usrFieldContainer.classList.add("inputError");
+    usrSvg.classList.add("fillError");
+    usrIcon.classList.add("iconContainerError");
   }
 
   function inputPassFocus() {
-    passFieldContainer.style.color = "white";
-    passFieldContainer.style.borderColor = "white";
-    passSvg.style.fill = "white";
-    showPassIcon.style.color = "white";
-    passIcon.style.borderColor = "white";
+    passFieldContainer.classList.replace("inputError", "inputFocus");
+    passSvg.classList.replace("fillError", "fillFocus");
+    passIcon.classList.replace("iconContainerError", "iconContainerFocus");
+    showPassIcon.classList.replace("inputError", "inputFocus");
+
+    passFieldContainer.classList.contains("inputError")
+      ? passFieldContainer.classList.replace("inputError", "inputFocus")
+      : passFieldContainer.classList.add("inputFocus");
+
+    passSvg.classList.contains("fillError")
+      ? passSvg.classList.replace("fillError", "fillFocus")
+      : passSvg.classList.add("fillFocus");
+
+    passIcon.classList.contains("iconContainerError")
+      ? passIcon.classList.replace("iconContainerError", "iconContainerFocus")
+      : passIcon.classList.add("iconContainerFocus");
+
+    showPassIcon.classList.contains("inputError")
+      ? showPassIcon.classList.replace("inputError", "inputFocus")
+      : showPassIcon.classList.add("inputFocus");
     errPass.innerHTML = "";
   }
 
   function inputPassBlur() {
-    passFieldContainer.style.color = "#d1d1d1";
-    passFieldContainer.style.borderColor = "#d1d1d1";
-    passSvg.style.fill = "#d1d1d1";
-    showPassIcon.style.color = "#d1d1d1";
-    passIcon.style.borderColor = "#d1d1d1";
+    if (passFieldContainer.classList.contains("inputError")) {
+      passFieldContainer.classList.remove("inputError");
+    }
+    if (passFieldContainer.classList.contains("inputFocus")) {
+      passFieldContainer.classList.remove("inputFocus");
+    }
+
+    if (passSvg.classList.contains("fillError")) {
+      passSvg.classList.remove("fillError");
+    }
+
+    if (passSvg.classList.contains("fillFocus")) {
+      passSvg.classList.remove("fillFocus");
+    }
+
+    if (passIcon.classList.contains("iconContainerError")) {
+      passIcon.classList.remove("iconContainerError");
+    }
+
+    if (passIcon.classList.contains("iconContainerFocus")) {
+      passIcon.classList.remove("iconContainerFocus");
+    }
+    if (showPassIcon.classList.contains("inputError")) {
+      showPassIcon.classList.remove("inputError");
+    }
+    if (showPassIcon.classList.contains("inputFocus")) {
+      showPassIcon.classList.remove("inputFocus");
+    }
   }
 
   function inputPassError() {
-    passFieldContainer.style.color = "red";
-    passFieldContainer.style.borderColor = "red";
-    passSvg.style.fill = "red";
-    passIcon.style.borderColor = "red";
+    passFieldContainer.classList.add("inputError");
+    passSvg.classList.add("fillError");
+    passIcon.classList.add("iconContainerError");
+    showPassIcon.classList.add("inputError");
   }
 
   function togglePassword() {
