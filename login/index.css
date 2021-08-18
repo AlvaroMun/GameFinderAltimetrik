@@ -401,20 +401,20 @@ input:focus + .checkmark {
   border-radius: 8px 0px 0px 8px;
 }
 
-#go {
+#googleBtn {
   background: #c7c7c7;
   border-radius: 8px;
 }
 
-#go .socialIcon {
+#googleBtn .socialIcon {
   background: #9d9d9d;
 }
 
-#go:hover {
+#googleBtn:hover {
   background: #9d9d9d;
 }
 
-#go i {
+#googleBtn i {
   border-radius: 8px 0px 0px 8px;
 }
 

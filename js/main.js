@@ -110,15 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
     search(searchInput.value);
   });
 
-  /*searchInput.addEventListener(
-    "blur",
-    () => {
-      hideSuggestions();
-      header.classList.remove("showOverflow");
-    },
-    true
-  );
-*/
   searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       search(searchInput.value);
