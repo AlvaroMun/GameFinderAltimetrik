@@ -3,24 +3,24 @@
 :root {
   --white: #fff;
   --black: #141414;
-  --grey: #303030;
+  --darkGrey: #303030;
+  --grey: #8f8f8f;
   --green: #7cd235;
-  --darkGreen: #2bb34f;
   --gradientGreen: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
-  --darkGrey: #a6a6a6;
-  --darkGreyCardAtt: #3d3d3d;
-  --greyCardAtt: #939393;
-  --darkWhite: #f1f1f1;
-  --greyButtons: #515151;
-  --greyModalButtons: #979797;
-  --blackSideNav: #151515;
+  --darkWhite: #d1d1d1;
   --errorRed: #e07979;
+  --fbBlue: #3b5998;
+  --fbDarkBlue: #263c68;
+  --twBlue: #00aced;
+  --twDarkBlue: #0695cb;
+  --googleGrey: #c7c7c7;
+  --googleDarkGrey: #9d9d9d;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: #ffffff !important;
-  background: #141414 !important;
+  color: var(--white) !important;
+  background: var(--black) !important;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -39,7 +39,7 @@ span {
 
 /*----------customize the anchors like remeber me and forgot pass----------*/
 a {
-  color: #ffffff;
+  color: var(--white);
   font-size: small;
   text-decoration: none;
 }
@@ -61,7 +61,7 @@ h4:before,
 h4:after {
   content: "";
   flex: 1 1;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid var(--white);
   margin: auto 5px;
 }
 
@@ -85,7 +85,7 @@ h4:after {
   justify-content: space-evenly;
   flex-direction: row;
   overflow: hidden;
-  background: #303030;
+  background: var(--darkGrey);
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
 }
 
@@ -122,7 +122,7 @@ button {
 #passFieldContainer {
   margin: 7px auto;
   box-sizing: border-box;
-  border: 1px solid #8f8f8f;
+  border: 1px solid var(--grey);
   border-radius: 8px;
 }
 
@@ -130,21 +130,21 @@ button {
   outline: none;
   margin: 0;
   border-style: none;
-  background: #303030;
+  background: var(--darkGrey);
   width: 300px;
-  color: white;
+  color: var(--white);
 }
 
 #userIcon,
 #passIcon {
   height: 3rem;
   width: 40px;
-  color: #d1d1d1;
-  border-right: 1px solid #8f8f8f;
+  color: var(--darkWhite);
+  border-right: 1px solid var(--grey);
 }
 
 #showPassword {
-  color: #d1d1d1;
+  color: var(--darkWhite);
   cursor: pointer;
   margin-left: -30px;
   margin-right: 13px;
@@ -163,7 +163,7 @@ button {
 
 #userSvg,
 #passSvg {
-  fill: #d1d1d1;
+  fill: var(--darkWhite);
 }
 
 /*----------customize the user's interaction with user and pass input----------*/
@@ -173,9 +173,9 @@ button {
   margin: 0;
   padding-right: 40px;
   border-style: none;
-  background: #303030;
+  background: var(--darkGrey);
   width: 300px;
-  color: white;
+  color: var(--white);
 }
 
 /*-------input autocomplete--------------*/
@@ -183,9 +183,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  box-shadow: #303030;
-  -webkit-box-shadow: 0 0 0 30px #303030 inset !important;
-  -webkit-text-fill-color: white;
+  box-shadow: var(--darkGrey);
+  -webkit-box-shadow: 0 0 0 30px var(--darkGrey) inset !important;
+  -webkit-text-fill-color: var(--white);
 }
 
 /*-----------checkbox-----------------------*/
@@ -226,16 +226,16 @@ input:-webkit-autofill:active {
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: #eee;
+  background-color: var(--white);
   border-radius: 4px;
-  background: #303030;
-  border: 1px solid #8f8f8f;
+  background: var(--darkGrey);
+  border: 1px solid var(--grey);
   box-sizing: border-box;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background: #7cd235;
+  background: var(--green);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -256,7 +256,7 @@ input:-webkit-autofill:active {
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--white);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -274,7 +274,7 @@ input:-webkit-autofill:active {
   top: 4px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--white);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -282,31 +282,31 @@ input:-webkit-autofill:active {
 }
 
 input:focus + .checkmark {
-  border-color: white;
+  border-color: var(--white);
 }
 
 /*----------customize of login btn----------*/
 #loginBtn {
-  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  background: var(--gradientGreen);
   border-radius: 8px;
   width: 100px;
   height: 40px;
   border-style: none;
-  color: white;
+  color: var(--white);
 }
 
 /*----------login btn user's interaction----------*/
 #loginBtn:hover {
-  background: #7cd235;
+  background: var(--green);
   cursor: pointer;
 }
 
 #loginBtn:active {
-  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  background: linear-gradient(180deg, var(--green) 0%, #2bb34f 100%);
 }
 
 #loginBtn:focus {
-  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  background: linear-gradient(180deg, var(--green) 0%, #2bb34f 100%);
 }
 
 /*----------login buttons and anchors containers----------*/
@@ -320,7 +320,7 @@ input:focus + .checkmark {
 }
 
 #anchorDiv a:hover {
-  color: #7cd235;
+  color: var(--green);
 }
 
 /*----------social net buttons container----------*/
@@ -334,7 +334,7 @@ input:focus + .checkmark {
   cursor: pointer;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--white);
   padding: 0;
   height: 40px;
   width: 240px;
@@ -368,16 +368,16 @@ input:focus + .checkmark {
 }
 
 #fb {
-  background: #3b5998;
+  background: var(--fbBlue);
   border-radius: 8px;
 }
 
 #fb .socialIcon {
-  background: #263c68;
+  background: var(--fbDarkBlue);
 }
 
 #fb:hover {
-  background: #263c68;
+  background: var(--fbDarkBlue);
 }
 
 #fb i {
@@ -385,16 +385,16 @@ input:focus + .checkmark {
 }
 
 #tw {
-  background: #00aced;
+  background: var(--twBlue);
   border-radius: 8px;
 }
 
 #tw .socialIcon {
-  background: #0695cb;
+  background: var(--twDarkBlue);
 }
 
 #tw:hover {
-  background: #0695cb;
+  background: var(--twDarkBlue);
 }
 
 #tw i {
@@ -402,16 +402,16 @@ input:focus + .checkmark {
 }
 
 #googleBtn {
-  background: #c7c7c7;
+  background: var(--googleGrey);
   border-radius: 8px;
 }
 
 #googleBtn .socialIcon {
-  background: #9d9d9d;
+  background: var(--googleDarkGrey);
 }
 
 #googleBtn:hover {
-  background: #9d9d9d;
+  background: var(--googleDarkGrey);
 }
 
 #googleBtn i {
