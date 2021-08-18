@@ -357,6 +357,18 @@ section ul {
 .gridToggleIcon,
 .listToggleIcon {
   margin: 0 12px;
+  background: var(--greyButtons);
+  border-radius: 10px;
+}
+
+.gridToggleIcon:hover,
+.listToggleIcon:hover {
+  background: var(--darkGrey);
+}
+
+/*--------------------------------------------------------TODO*/
+.toggleActive {
+  background: var(--darkGrey);
 }
 
 .gridToggleBtn,
@@ -368,6 +380,10 @@ section ul {
   cursor: pointer;
   overflow: hidden;
   outline: none;
+}
+
+.gridToggleBtn:enabled #gridToggleIcon {
+  fill: var(--greyButtons);
 }
 
 .mainHeader h2 {
@@ -647,6 +663,16 @@ section ul {
   overflow-y: hidden;
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+
+  background: var(--green);
+}
+
+::selection {
+  background: var(--green);
+}
+
 .modalBackground {
   position: absolute;
   width: 100%;
@@ -690,6 +716,7 @@ section ul {
 }
 
 .modalData h2 {
+  text-shadow: 1px 0px 7px var(--grey);
   font-weight: 800;
   font-size: 60px;
   line-height: 82px;
@@ -878,6 +905,11 @@ section ul {
 
 #sideMenuMobile {
   display: none;
+}
+
+#wentWrongImg {
+  width: 640px;
+  height: fit-content;
 }
 /*----------------Responsiveness--------------------*/
 
@@ -1211,6 +1243,11 @@ section ul {
 @media only screen and (max-width: 340px) {
   .gameCard {
     border-radius: 0;
+  }
+
+  #wentWrongImg {
+    width: 320px;
+    height: fit-content;
   }
 
   #searchBtn {
