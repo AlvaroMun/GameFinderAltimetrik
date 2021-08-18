@@ -1,5 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap");
 
+:root {
+  --white: #fff;
+  --black: #141414;
+  --grey: #303030;
+  --green: #7cd235;
+  --darkGreen: #2bb34f;
+  --gradientGreen: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  --darkGrey: #a6a6a6;
+  --darkGreyCardAtt: #3d3d3d;
+  --greyCardAtt: #939393;
+  --darkWhite: #f1f1f1;
+  --greyButtons: #515151;
+  --greyModalButtons: #979797;
+  --blackSideNav: #151515;
+  --errorRed: #e07979;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #ffffff !important;
@@ -137,7 +154,7 @@ button {
   height: 20px;
   align-self: flex-start;
   margin-left: 5px;
-  color: red;
+  color: var(--errorRed);
   font-size: 14px;
   line-height: 19px;
   font-style: normal;
@@ -150,14 +167,7 @@ button {
 }
 
 /*----------customize the user's interaction with user and pass input----------*/
-/*
-#userFieldContainer:focus-within,
-#userFieldContainer:focus-within svg {
-  border-color: white;
-  color: white;
-  fill: white;
-}
-*/
+
 #passFieldContainer input {
   outline: none;
   margin: 0;
@@ -167,15 +177,6 @@ button {
   width: 300px;
   color: white;
 }
-
-/*
-#passFieldContainer:focus-within,
-#passFieldContainer:focus-within #passIcon,
-#passFieldContainer:focus-within #showPassword {
-  border-color: white;
-  color: white;
-}
-*/
 
 /*-------input autocomplete--------------*/
 input:-webkit-autofill,
@@ -427,6 +428,71 @@ input:focus + .checkmark {
   height: 660px;
 }
 
+.snackbar {
+  position: absolute;
+  bottom: 3%;
+  left: 27%;
+  width: 630px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  transition: 1s;
+  opacity: 0;
+}
+
+.snackbar h3 {
+  margin-bottom: 0;
+  margin-left: 20px;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.snackbar svg {
+  margin-right: 20px;
+}
+
+.snackbarShow {
+  display: flex;
+  opacity: 100%;
+  transition: 1s;
+}
+
+.snackbarHide {
+  display: none;
+  background: initial;
+  opacity: 0;
+  transition: 1s;
+}
+
+/*-----input error classes--------*/
+.inputError {
+  color: var(--errorRed) !important;
+  border-color: var(--errorRed) !important;
+}
+
+.fillError {
+  fill: var(--errorRed) !important;
+}
+
+.iconContainerError {
+  border-color: var(--errorRed) !important;
+}
+
+/*-------------input focus classes------------*/
+.inputFocus {
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+}
+
+.fillFocus {
+  fill: var(--white) !important;
+}
+
+.iconContainerFocus {
+  border-color: var(--white) !important;
+}
 /*----------Responsiveness----------*/
 
 @media only screen and (max-width: 1130px) {

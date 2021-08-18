@@ -10,11 +10,27 @@ ul {
 html,
 body {
   position: relative;
-  color: #ffffff;
-  background: #141414;
+  color: var(--white);
+  background: var(--black);
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+:root {
+  --white: #fff;
+  --black: #141414;
+  --grey: #303030;
+  --green: #7cd235;
+  --darkGreen: #2bb34f;
+  --gradientGreen: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  --darkGrey: #a6a6a6;
+  --darkGreyCardAtt: #3d3d3d;
+  --greyCardAtt: #939393;
+  --darkWhite: #f1f1f1;
+  --greyButtons: #515151;
+  --greyModalButtons: #979797;
+  --blackSideNav: #151515;
 }
 
 *::-webkit-scrollbar {
@@ -33,7 +49,7 @@ body {
   margin-top: 10px;
 }
 *::-webkit-scrollbar-track {
-  color: #141414;
+  color: var(--black);
 }
 
 *::-webkit-scrollbar-corner {
@@ -41,21 +57,13 @@ body {
 }
 
 button {
-  color: #ffffff;
+  color: var(--white);
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
 }
-/*
-body{
-    color: #FFFFFF !important;
-    background: #141414 !important;
-    width: 100%;
-    height: 100%;
-}
-*/
 
 /*------Header-------*/
 .header {
@@ -63,19 +71,16 @@ body{
   transition: 0.5s;
   height: 120px;
   width: 100%;
-  /*display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  padding: 40px 0;
-  justify-content: center;*/
-  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  background: var(--gradientGreen);
   box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
 }
 
 hr {
   border: none;
   height: 1px;
-  margin: 18px 40px;
+  margin: 0 40px;
+  margin-top: 15px;
+  z-index: 10;
 }
 
 .logOutBtnSideMenuContainer {
@@ -130,7 +135,7 @@ hr {
   margin-right: 11px;
   font-size: 14px;
   line-height: 19px;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .sideMenuToggle {
@@ -145,32 +150,76 @@ hr {
 }
 
 .searchContainer {
+  position: relative;
   width: 362px;
   height: 40px;
-  margin-top: 34px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: flex-end;
 }
 
 .searchContainer svg {
   cursor: pointer;
-  fill: #a6a6a6;
-  margin-right: -30px;
+  fill: var(--darkGray);
+  position: absolute;
+  top: 12px;
+  left: 12px;
   z-index: 5;
 }
 
 .searchContainer input {
   outline: none;
+  color: var(--darkGrey);
   padding-left: 40px;
-  background: #f1f1f1;
+  background: var(--darkWhite);
   border-radius: 20px;
   width: 100%;
   height: 100%;
+  border: none;
+}
+
+.showOverflow {
+  overflow: visible;
+}
+
+#searchSuggestions {
+  background: var(--darkWhite);
+  color: var(--darkGrey);
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  font-size: 16px;
+  line-height: 22px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+#searchSuggestions::after {
+  content: "";
+  background: var(--darkGray);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 1px;
+  width: 90%;
+}
+
+#searchSuggestions li {
+  padding: 7px 17px;
+  cursor: pointer;
+}
+
+#searchSuggestions li:hover {
+  background: grey;
+}
+
+.suggestionsDisplayed {
+  border-radius: 20px 20px 0 0 !important;
+}
+
+.lastSearches {
+  display: initial !important;
 }
 
 h1 {
@@ -222,7 +271,11 @@ a:visited {
 } /* Visited link    */
 
 a:active {
-  color: white;
+  color: var(--green);
+}
+
+a:hover {
+  color: var(--green);
 }
 
 .sideNav {
@@ -232,18 +285,6 @@ a:active {
   float: left;
   padding-left: 40px;
 }
-
-/*
-.sideNavOpen {
-  background: #151515;
-  display: initial !important;
-  position: fixed;
-  width: 303px;
-  box-shadow: 14px 0px 36px 5px rgba(0, 0, 0, 0.62);
-  top: 0;
-  padding-top: 120px;
-}
-*/
 
 .sideNavMenu {
   padding: 0;
@@ -316,7 +357,7 @@ section ul {
 
 .gridToggleBtn,
 .listToggleBtn {
-  background: #141414;
+  background: var(--black);
   border: none;
   background-color: Transparent;
   border: none;
@@ -348,14 +389,12 @@ section ul {
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
-  /*max-height: 100%;
-  min-height: 750px;
-  height: 750px;*/
   height: calc(100% - 280px);
 }
 
 #listContent {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(3, minmax(333px, 500px));
   gap: 21px;
   grid-auto-rows: minmax(321px, 380px);
@@ -365,12 +404,20 @@ section ul {
 
 .loader {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .loading {
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: 0;
   width: 80px;
   height: 80px;
 }
@@ -381,8 +428,8 @@ section ul {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border: 6px solid var(--darkGrey);
+  border-color: var(--darkGrey) transparent var(--darkGrey) transparent;
   animation: loading 1.2s linear infinite;
 }
 @keyframes loading {
@@ -404,11 +451,9 @@ section ul {
 .gameCard {
   overflow: hidden;
   position: relative;
-  /*width: 333px;*/
   height: 100%;
-  background: #303030;
+  background: var(--grey);
   border-radius: 10px;
-  /*margin: 12px;*/
   transition: margin-top 0.5s;
   transition-timing-function: ease;
 }
@@ -417,7 +462,7 @@ section ul {
   padding-top: 10px;
   position: absolute;
   bottom: 0;
-  background: #303030;
+  background: var(--grey);
   width: 100%;
   margin: 0;
   height: 120px;
@@ -430,12 +475,7 @@ section ul {
 .gameCardCover {
   display: block;
   object-fit: cover;
-  /*margin-left: auto;
-  margin-right: auto;*/
   width: 100%;
-  /*width: 363px;
-   height: 217.3px; 
-  */
   height: 100%;
 }
 
@@ -448,13 +488,13 @@ section ul {
 
 .gameCardData h3 {
   text-align: start;
-  /* width: 200px; Agregue esto para que no me rompa el resto de la data!!!!!!*/
+  width: 136px;
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 31px;
   overflow: hidden;
-  /*hasta aca va para que no rompa*/
   margin-top: 15px;
+  margin-right: 10px;
   font-style: normal;
   font-weight: 800;
   font-size: 23px;
@@ -462,7 +502,6 @@ section ul {
 }
 
 .gameCardAtt {
-  /*width: 210px; commented to make desc width variable*/
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -473,8 +512,8 @@ section ul {
   font-weight: 300;
   font-size: 12px;
   line-height: 16px;
-  border-bottom: 1px solid #3d3d3d;
-  color: #939393;
+  border-bottom: 1px solid var(--darkGreyCardAtt);
+  color: var(--greyCardAtt);
 }
 
 .gameCardAtt h6:nth-child(even) {
@@ -482,15 +521,38 @@ section ul {
 }
 
 .gameCardIcons {
-  margin-left: 20px;
   margin-top: 15px;
   height: 85px;
-  /*float: right; commented to make width variable*/
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: space-evenly;
+}
+
+.icons svg {
+  margin: 0 2px;
+  float: right;
+  height: 13px;
+  width: 17px;
+}
+
+.modalPlatformsIcons svg {
+  margin: 0 3px;
+  height: 20px;
+  width: 20px;
+}
+
+.gameCardIcons h5 {
+  margin-bottom: 0;
+  color: var(--darkGreen);
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.hide {
+  display: none;
 }
 
 .gameCardIcons img {
@@ -502,7 +564,7 @@ section ul {
   border: none;
   position: relative;
   outline: none;
-  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  background: var(--gradientGreen);
   width: 47px;
   height: 24px;
   border-radius: 10px;
@@ -568,11 +630,13 @@ section ul {
 .modalWindow {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   border-radius: 10px;
-  background: #303030;
+  background: var(--grey);
   z-index: 1000;
   height: 900px;
   width: 1070px;
@@ -633,7 +697,25 @@ section ul {
 
 .modalRanking {
   margin-bottom: 32px;
-  margin-top: 44px;
+  /*margin-top: 44px;*/
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.modalRanking div {
+  background: var(--white);
+  color: var(--black);
+  font-size: 16px;
+  line-height: 22px;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.modalRanking span {
+  color: var(--darkGreen);
 }
 
 .modalParagraph {
@@ -651,18 +733,18 @@ section ul {
   width: 151px;
   height: 50px;
   text-align: left;
-  border: 1px solid #979797;
+  border: 1px solid var(--greyModalButtons);
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  background: linear-gradient(180deg, #7cd235 0%, #2bb34f 100%);
+  background: var(--gradientGreen);
 
   font-size: 12px;
   line-height: 17px;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .modalActionButtons button span {
@@ -702,11 +784,7 @@ section ul {
   font-weight: 300;
   font-size: 12px;
   line-height: 16px;
-  color: #939393;
-}
-
-.modalRanking {
-  margin-top: 15px;
+  color: var(--greyCardAtt);
 }
 
 .modalData h2 {
@@ -716,7 +794,7 @@ section ul {
 .modalGridData li h6:last-child,
 .modalGridData a {
   text-decoration-line: underline;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .modalCommentsActions {
@@ -728,11 +806,11 @@ section ul {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: #515151;
+  background: var(--greyButtons);
   border-radius: 10px;
   width: 141px;
   height: 40px;
-  color: #ffffff;
+  color: var(--white);
   font-size: 12px;
   line-height: 16px;
   outline: none;
@@ -794,6 +872,9 @@ section ul {
   background: rgba(0, 0, 0, 0.784937);
 }
 
+#sideMenuMobile {
+  display: none;
+}
 /*----------------Responsiveness--------------------*/
 
 @media screen and (min-width: 768px) {
@@ -808,8 +889,8 @@ section ul {
 
 @media only screen and (max-width: 1290px) {
   .sideNav {
-    left: -330px;
-    background: #151515;
+    left: -500px;
+    background: var(--blackSideNav);
     position: fixed;
     width: 303px;
     box-shadow: 14px 0px 36px 5px rgb(0 0 0 / 62%);
@@ -872,8 +953,7 @@ section ul {
     height: calc(100% - 120px);
     width: 100%;
     border-radius: 0;
-    margin-top: 120px;
-    top: 44%;
+    top: 120px;
   }
 
   .modalContent {
@@ -914,7 +994,7 @@ section ul {
   }
 
   .searchContainer {
-    margin-top: 110px;
+    margin-top: 95px;
   }
 
   hr {
@@ -967,7 +1047,11 @@ section ul {
 
   .gameCardData {
     height: 100px;
-    width: 280px;
+    width: 100%;
+  }
+
+  .gameCardData h3 {
+    width: 100%;
   }
 
   .gameCardDesc {
@@ -977,14 +1061,14 @@ section ul {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
   }
 
   .gameCardIcons {
     margin-top: 0;
     margin-left: 0;
-    width: 280px;
+    width: 100%;
     height: 30px;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -995,12 +1079,15 @@ section ul {
   /*------Modal--------*/
 
   .modalWindow {
-    margin-top: 104px;
-    top: 45%;
+    top: 104px;
     display: flex;
     display: none;
     justify-content: center;
     height: calc(100% - 102px);
+  }
+
+  .modalBackground {
+    border-radius: 0;
   }
 
   .modalGridData ul {
@@ -1030,6 +1117,15 @@ section ul {
 
   .modalGridData li:nth-child(even) {
     margin-left: 0;
+  }
+
+  .modalRanking {
+    flex-direction: column;
+  }
+
+  .modalRanking div {
+    margin: 8px 0;
+    width: 117px;
   }
 
   .rankingAndActionButtons {
@@ -1069,6 +1165,8 @@ section ul {
 
   .modalWrapper {
     padding: 0;
+    grid-template-columns: 100%;
+    justify-items: center;
   }
   .modalActionButtons button {
     width: 108px !important;
@@ -1081,14 +1179,34 @@ section ul {
   .modalImages {
     margin: 0;
   }
+
+  .commentsAndData {
+    justify-self: start;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #sideMenuMobile {
+    display: initial;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 23px;
+    margin-top: 56px;
+  }
+
+  .sideNav {
+    width: 100%;
+  }
+
+  .searchContainer {
+    width: 246px;
+  }
 }
 
 @media only screen and (max-width: 340px) {
   .gameCard {
     border-radius: 0;
-  }
-  .searchContainer {
-    width: 246px;
   }
 
   #searchBtn {
@@ -1098,19 +1216,3 @@ section ul {
     padding-left: 10px;
   }
 }
-
-/* bootstrap
-.wrapper {
-    display: flex;
-    align-items: stretch;
-}
-
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-}
-
-#sidebar.active {
-    margin-left: -250px;
-}
-*/
