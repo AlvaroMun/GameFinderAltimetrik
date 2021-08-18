@@ -216,6 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
   async function getGames(
     link = "https://api.rawg.io/api/games?key=c7b6f273e3984c5e83fb3f76702937f2&page_size=15"
   ) {
+    if (lastSearches.classList.contains("anchorSelected")) {
+      lastSearches.classList.remove("anchorSelected");
+    }
+    homeAnchor.classList.add("anchorSelected");
+
     console.log("ESTA ES LA URL QUE ENTRO", link);
 
     try {
@@ -482,6 +487,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displaySearchList() {
+    if (homeAnchor.classList.contains("anchorSelected")) {
+      homeAnchor.classList.remove("anchorSelected");
+    }
+    lastSearches.classList.add("anchorSelected");
+
     let lastSearchesToMain = "";
     listContent.classList.add("lastSearches");
     if (lastSearchesList.length > 0) {
