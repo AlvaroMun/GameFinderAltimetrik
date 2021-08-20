@@ -278,6 +278,20 @@ a:hover {
   color: var(--green);
 }
 
+li svg {
+  fill: var(--white);
+}
+
+.sideNav ul li:hover div svg {
+  fill: var(--green);
+}
+.sideNav ul li:hover a {
+  color: var(--green);
+}
+.fillGreen {
+  fill: var(--green);
+}
+
 .anchorSelected {
   color: var(--green) !important;
 }
@@ -308,7 +322,7 @@ a:hover {
 #topSideMenu li {
   margin: 10px 0;
 }
-
+/*
 .sideMenuIconContainer {
   width: 16px;
   height: 15px;
@@ -321,12 +335,12 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
-}
+}*/
 
 #middleSideMenu li,
 #bottomSideMenu li {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-direction: row;
 }
 
@@ -508,7 +522,6 @@ section ul {
 
 .gameCardData h3 {
   text-align: start;
-  width: 136px;
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 31px;
@@ -519,9 +532,30 @@ section ul {
   font-weight: 800;
   font-size: 23px;
   line-height: 31px;
+  position: relative;
 }
 
+/*
+
+.gameCardData h3::after {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  content: attr(data-tooltip);
+  padding: 6px 10px;
+  top: 1.4em;
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px);
+  background: grey;
+  color: white;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 2px;
+}
+*/
 .gameCardAtt {
+  min-width: 150px;
+  max-width: 180px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -538,6 +572,10 @@ section ul {
 
 .gameCardAtt h6:nth-child(even) {
   text-align: end;
+}
+
+.icons {
+  width: max-content;
 }
 
 .gameCardIcons {
@@ -592,8 +630,7 @@ section ul {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
 }
 
@@ -970,6 +1007,8 @@ section ul {
 
   #logOutBtnSideMenu {
     display: flex;
+    flex-direction: row;
+    align-items: baseline;
   }
 
   .logOutBtnTxt {
@@ -1099,6 +1138,10 @@ section ul {
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .gameCardAtt {
+    min-width: 100%;
   }
 
   .gameCardIcons {
